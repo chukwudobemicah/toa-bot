@@ -58,7 +58,7 @@ export default function Nav() {
 
         {/*  */}
 
-        <div className="w-fit ml-auto flex items-center gap-[1.06rem] px-4 justify-end md:pt-0">
+        {/* <div className="w-fit ml-auto flex items-center gap-[1.06rem] px-4 justify-end md:pt-0">
           <div className="flex items-center gap-[1.06rem]">
             <div className="relative inline-block cursor-pointer">
               <div className="p-2.5 flex items-center justify-center rounded-full bg-[#35314D]">
@@ -68,7 +68,6 @@ export default function Nav() {
                 8
               </span>
             </div>
-            {/*  */}
             <div className="max-lg:hidden p-2.5 flex items-center justify-center rounded-full bg-[#35314D] cursor-pointer">
               <Icon iconType="user" className="w-4" />
             </div>
@@ -77,7 +76,7 @@ export default function Nav() {
           <Button className="py-2 px-4 md:px-[1.625rem] text-xs md:text-base">
             Connect Wallet
           </Button>
-        </div>
+        </div> */}
 
         {/*  */}
 

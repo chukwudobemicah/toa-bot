@@ -1,5 +1,7 @@
 import Button from "@/components/Button/button";
+import Layout from "@/components/Layout/Layout";
 import Image from "next/image";
+import { ReactElement } from "react";
 
 export default function Home() {
   const cardData = [
@@ -61,3 +63,7 @@ export default function Home() {
     </main>
   );
 }
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};
