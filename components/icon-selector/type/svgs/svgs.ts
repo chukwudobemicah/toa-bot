@@ -172,3 +172,10 @@ export { default as SidebarArrow } from "@/assets/icons/sidebar-arrow.svg";
 export { default as ImageClip } from "@/assets/icons/image-clip.svg";
 export { default as Bell } from "@/assets/icons/ic_bell.svg";
 export { default as UserIcon } from "@/assets/icons/ic_user.svg";
+
+//
+export { default as TabOne } from "@/assets/icons/tab-1.svg";
+export { default as TabTwo } from "@/assets/icons/tab-2.svg";
+export { default as TabThree } from "@/assets/icons/tab-3.svg";
+export { default as TabFour } from "@/assets/icons/tab-4.svg";
+export { default as TabFive } from "@/assets/icons/tab-5.svg";

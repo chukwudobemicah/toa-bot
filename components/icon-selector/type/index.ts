@@ -158,6 +158,11 @@ import {
   Eye,
   Bell,
   UserIcon,
+  TabOne,
+  TabTwo,
+  TabThree,
+  TabFour,
+  TabFive,
 } from "./svgs/svgs";
 
 export const ICON_TYPE: {
@@ -330,5 +335,10 @@ export const ICON_TYPE: {
     thickChevron: SidebarArrow,
     bell: Bell,
     user: UserIcon,
+    tabOne: TabOne,
+    tabTwo: TabTwo,
+    tabThree: TabThree,
+    tabFour: TabFour,
+    tabFive: TabFive,
   },
 };

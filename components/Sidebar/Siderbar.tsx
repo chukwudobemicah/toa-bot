@@ -15,22 +15,27 @@ export const SIDEBAR_LINK = [
   {
     text: "Chat",
     linkto: "/chat",
-    icon: "chat", // Chat icon string
+    icon: "tabOne", // Chat icon string
   },
   {
     text: "Profile",
     linkto: "/profile",
-    icon: "profile", // Profile icon string
+    icon: "tabTwo", // Profile icon string
   },
   {
     text: "About Us",
     linkto: "/about",
-    icon: "about", // About Us icon string
+    icon: "tabThree", // About Us icon string
   },
   {
     text: "Tier List",
     linkto: "/tier-list",
-    icon: "tierList", // Tier List icon string
+    icon: "tabFour", // Tier List icon string
+  },
+  {
+    text: "Tier List",
+    linkto: "/tier-list",
+    icon: "tabFive", // Tier List icon string
   },
   // {
   //   text: "History",
@@ -69,7 +74,7 @@ export default function Sidebar() {
     <aside
       id="sidebar"
       className={cn(
-        " overflow-x-clip bg-[#0E1147] md:bg-white/5 max-md:-translate-x-[100%] overflow-y-scroll transition-all duration-300 ease-in-out max-md:z-[9999] z-[10]  w-[200px] px-4 pb-10 pt-8 justify-between flex flex-col max-lg:shadow-sm max-lg:shadow-black h-dvh fixed left-0 top-0 max-lg-translate-x-full",
+        " overflow-x-clip bg-background max-md:-translate-x-[100%] overflow-y-scroll transition-all duration-300 ease-in-out max-md:z-[9999] z-[10]  w-[200px] px-4 pb-10 pt-8 justify-between flex flex-col max-lg:shadow-sm max-lg:shadow-black h-dvh fixed left-0 top-0 max-lg-translate-x-full",
         {
           "max-md:translate-x-0 z-30 w-[250px]": isMobileSidebarOpen,
           "md:w-[90px] !px-4 !overflow-hidden": !sidebarIsOpen,
@@ -123,7 +128,7 @@ export default function Sidebar() {
                 >
                   <Icon
                     iconType={link.icon}
-                    className={cn("w-[1rem] text-text", {
+                    className={cn("w-[1.5rem] text-text", {
                       "text-white":
                         link?.linkto?.toLowerCase() ===
                         router.pathname.toLowerCase(),
@@ -147,7 +152,7 @@ export default function Sidebar() {
             !sidebarIsOpen,
         })}
       >
-        <Link
+        {/* <Link
           href={"/chat"}
           className={cn("flex items-center gap-4 text-sm justify-between", {
             "justify-center": !sidebarIsOpen,
@@ -164,8 +169,8 @@ export default function Sidebar() {
               2
             </p>
           )}
-        </Link>
-        <Link
+        </Link> */}
+        {/* <Link
           href={"/chat"}
           className={cn("flex items-center gap-4 text-sm justify-between", {
             "justify-center": !sidebarIsOpen,
@@ -182,7 +187,7 @@ export default function Sidebar() {
               2
             </p>
           )}
-        </Link>
+        </Link> */}
         <div
           className={cn("flex items-center gap-4 text-sm justify-between", {
             "justify-center": !sidebarIsOpen,
