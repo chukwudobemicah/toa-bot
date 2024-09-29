@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/utils/functions";
 import Icon from "../icon-selector/icon-selector";
-import Message from "../Message/Message";
 import useChatBoxIsOpenStore from "@/utils/store/useChatBoxIsOpenStore";
+import Message from "../Message/Message";
 
 export type Position = "receiver" | "sender";
 
@@ -15,34 +15,9 @@ export type MessageType = {
   position: Position;
 };
 
-export default function ChatBox() {
+export default function Page3ChatBox() {
   const [inputValue, setInputValue] = useState<string>("");
-  const [messages, setMessages] = useState<MessageType[]>([
-    {
-      id: 1,
-      message: "Hey! How are you?",
-      time: "10:00 AM",
-      image: "https://placehold.co/36x36",
-      name: "Cortex.t Ultra",
-      position: "receiver",
-    },
-    {
-      id: 2,
-      message: "I'm doing well, thank you!",
-      time: "10:02 AM",
-      image: "https://placehold.co/36x36",
-      name: "Micah",
-      position: "sender",
-    },
-    {
-      id: 3,
-      message: "That's great to hear!",
-      time: "10:05 AM",
-      image: "https://placehold.co/36x36",
-      name: "Cortex.t Ultra",
-      position: "receiver",
-    },
-  ]);
+  const [messages, setMessages] = useState<MessageType[]>([]);
 
   const handleMessageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -89,9 +64,16 @@ export default function ChatBox() {
     setInputValue((prevInput) => prevInput + emojiObject.emoji);
     setShowPicker(false);
   };
+  const [showNote, setShowNote] = useState(true);
 
   const { setChatboxIsOpen, chatboxIsOpen } = useChatBoxIsOpenStore();
-
+  const questions = [
+    "Machine learning vs. deep learning: what's the difference?",
+    "What's the deal with proof-of-work vs. proof-of-stake?",
+    "How does natural selection work?",
+    "Stack vs. queue: what's the difference?",
+    "Can you explain the Turing test?",
+  ];
   return (
     <div
       className={cn(
@@ -106,25 +88,58 @@ export default function ChatBox() {
       </h1>
       <audio ref={audioRef} src="/audio/sent_message.wav" />
 
-      <div className="absolute whitespace-nowrap text-[#9CA3AF] text-sm bottom-24 z-[99] left-1/2 -translate-x-1/2 flex gap-4 items-center">
-        <div className="flex hover:brightness-150 transition-all duration-300 ease-in-out cursor-pointer items-center gap-3 bg-secondary border border-white/10 py-1.5 px-3 rounded-lg">
-          <div>
-            <Icon iconType={"star"} className="w-5" />
-          </div>
-          <p>Can you provide more details?</p>
-        </div>
-        <div className="flex hover:brightness-150 transition-all duration-300 ease-in-out cursor-pointer items-center gap-3 bg-secondary border border-white/10 py-1.5 px-3 rounded-lg">
-          <div>
-            <Icon iconType={"star"} className="w-5" />
-          </div>
-          <p>Can you clarify your request?</p>
-        </div>
-      </div>
-
       <div
         ref={chatBoxContainerRef}
         className="flex-grow h-[80vh] overflow-y-clip pb-12"
       >
+        {messages.length < 1 && (
+          <div className=" text-white h-full flex flex-col items-center p-6">
+            {/* Title */}
+
+            {/* Note Section */}
+            {showNote && (
+              <div className="bg-secondary border border-white/10 text-gray-300 py-2 px-3 rounded-lg flex items-center justify-between max-w-lg w-full text-xs mb-8">
+                <p>
+                  Note: Due to the nascent nature of Bittensor, subnets and
+                  their APIs are often unstable. In order to make this service
+                  conducive for production use, we use Akash as a fallback for
+                  requests that fail.
+                </p>
+                <button
+                  onClick={() => setShowNote(false)}
+                  className="ml-4 text-gray-500 hover:text-white transition-colors"
+                >
+                  <Icon iconType={"cancel"} className="w-3" />
+                </button>
+              </div>
+            )}
+
+            <div className="flex flex-col gap-4 flex-grow items-center justify-center">
+              {/* Suggested Questions Section */}
+              <div className="text-center mb-4">
+                <h2 className="text-lg font-semibold">Suggested Questions</h2>
+                <p className="text-gray-400 text-xs">
+                  Questions that you might want to ask
+                </p>
+              </div>
+
+              {/* Questions Buttons */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl w-4/5 mx-auto">
+                {questions.map((question, index) => (
+                  <button
+                    key={index}
+                    className="flex hover:brightness-150 transition-all duration-300 ease-in-out cursor-pointer items-center gap-3 bg-secondary border border-white/10 py-1.5 px-3 rounded-lg text-xs"
+                  >
+                    <div>
+                      <Icon iconType={"star"} className="w-4" />
+                    </div>
+                    <p>{question}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
         <div
           onClick={() => {
             setShowPicker(false);
@@ -177,3 +192,12 @@ export default function ChatBox() {
     </div>
   );
 }
+
+// import { useState } from "react";
+
+// export default function SuggestedQuestions() {
+
+//   return (
+
+//   );
+// }

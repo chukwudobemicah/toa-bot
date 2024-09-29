@@ -1,6 +1,6 @@
 import { cn } from "@/utils/functions";
 import React from "react";
-import { MessageType } from "./ChatBox";
+import { MessageType } from "../ChatPage/ChatBox";
 
 type MessageProps = {
   messages: MessageType[];
