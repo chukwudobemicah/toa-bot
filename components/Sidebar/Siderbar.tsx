@@ -14,22 +14,22 @@ export const SIDEBAR_LINK = [
   },
   {
     text: "Chat",
-    linkto: "/chat",
+    linkto: "/page-2",
     icon: "tabOne", // Chat icon string
   },
   {
     text: "Profile",
-    linkto: "/profile",
+    linkto: "/page-3",
     icon: "tabTwo", // Profile icon string
   },
   {
     text: "About Us",
-    linkto: "/about",
+    linkto: "/page-4",
     icon: "tabThree", // About Us icon string
   },
   {
     text: "Tier List",
-    linkto: "/tier-list",
+    linkto: "/social-sensor",
     icon: "tabFour", // Tier List icon string
   },
   {
@@ -111,7 +111,7 @@ export default function Sidebar() {
               >
                 <div
                   className={cn(
-                    `relative group cursor-pointer flex transition-all duration-300 ease-in-out  gap-3 py-2 w-full  items-center pl-5 rounded-full text-text`,
+                    `relative group cursor-pointer flex transition-all duration-300 ease-in-out  gap-3 py-2 w-full  items-center rounded-full text-text`,
                     {
                       "bg-primary text-white":
                         link?.linkto?.toLowerCase() ===
@@ -122,7 +122,7 @@ export default function Sidebar() {
                       "hover:bg-white/20 hover:blursm":
                         link?.linkto?.toLowerCase() !==
                         router.pathname.toLowerCase(),
-                      "aspect-square w-8 justify-center pl-0": !sidebarIsOpen,
+                      "aspect-square size-9 justify-center": !sidebarIsOpen,
                     }
                   )}
                 >
@@ -195,9 +195,9 @@ export default function Sidebar() {
         >
           <div className="flex items-center gap-4">
             <div>
-              <Icon iconType={"settings"} className="w-4" />
+              <Icon iconType={"logout"} className="w-4" />
             </div>
-            {sidebarIsOpen && <p>Settings</p>}
+            {sidebarIsOpen && <p>Logout</p>}
           </div>
         </div>
         <div
@@ -207,13 +207,14 @@ export default function Sidebar() {
         >
           <div className="flex items-center gap-4">
             <div>
-              <Icon iconType={"logout"} className="w-4" />
+              <Icon iconType={"settings"} className="w-4" />
             </div>
-            {sidebarIsOpen && <p>Logout</p>}
+            {sidebarIsOpen && <p>Settings</p>}
           </div>
         </div>
+
         {/*  */}
-        <div
+        {/* <div
           className={cn(
             "mt-4 flex text-sm font-bold font-roboto items-center gap-2",
             {
@@ -227,7 +228,7 @@ export default function Sidebar() {
             className="rounded-full select-none"
           />
           {sidebarIsOpen && <p>0xb1…cF650xb</p>}
-        </div>
+        </div> */}
       </div>
     </aside>
   );
