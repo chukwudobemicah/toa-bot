@@ -10,7 +10,7 @@ export type MessageType = {
   id: number;
   message: string;
   name?: string; // Optional since not all messages have a name
-  senderImage?: string;
+  image?: string;
   time: string;
   position: Position;
 };
@@ -22,7 +22,7 @@ export default function ChatBox() {
       id: 1,
       message: "Hey! How are you?",
       time: "10:00 AM",
-      senderImage: "/path",
+      image: "https://placehold.co/36x36",
       name: "Cortex.t Ultra",
       position: "receiver",
     },
@@ -30,15 +30,15 @@ export default function ChatBox() {
       id: 2,
       message: "I'm doing well, thank you!",
       time: "10:02 AM",
-      senderImage: "/path",
-      name: "Cortex.t Ultra",
+      image: "https://placehold.co/36x36",
+      name: "Micah",
       position: "sender",
     },
     {
       id: 3,
       message: "That's great to hear!",
       time: "10:05 AM",
-      senderImage: "/path",
+      image: "https://placehold.co/36x36",
       name: "Cortex.t Ultra",
       position: "receiver",
     },
@@ -115,15 +115,9 @@ export default function ChatBox() {
             setShowPicker(false);
           }}
           ref={chatBoxBottomRef}
-          className="w-full overflow-y-auto h-full scroll-container relative flex flex-col gap-6 pt-6 pb-8 px-4"
+          className="w-full overflow-y-auto h-full scroll-container relative flex flex-col pt-6 pb-8 px-4"
         >
           <Message messages={messages} />
-
-          {/* {showPicker && (
-            <div className="absolute z-50 left-1/2 top-0 -translate-x-1/2">
-              <EmojiPicker onEmojiClick={onEmojiClick} />
-            </div>
-          )} */}
         </div>
       </div>
       <div className="absolute bottom-4 left-0 w-full">
@@ -131,25 +125,28 @@ export default function ChatBox() {
           onSubmit={handleSubmit}
           className="relative bg-background flex px-4 w-full gap-4 items-center"
         >
-          <label
-            className="cursor-pointer hover:text-primary text-text-secondary transition-colors duration-300 ease-in"
-            htmlFor="image"
-          >
-            <Icon iconType="add" className="w-7" />
-            <input name="image" id="image" className="hidden" type="file" />
-          </label>
           <div className="relative flex-grow">
-            <div className="flex w-full gap-4 flex-col">
+            <div className="flex w-full gap-4 items-center rounded-[18px]  text-sm bg-secondary border border-border pr-4 pl-4 h-[55px]">
+              <label
+                className="cursor-pointer hover:text-primary text-text-secondary transition-colors duration-300 ease-in"
+                htmlFor="image"
+              >
+                <Icon iconType="imageClip" className="w-4" />
+                <input name="image" id="image" className="hidden" type="file" />
+              </label>
               <input
                 type="text"
                 placeholder="Type Your Message"
-                className="whitespace-normal border border-text-secondary bg-transparent text-white max-w-full w-full rounded-full pr-12 pl-4 h-[47px] placeholder:text-text-secondary"
+                className="whitespace-normal bg-transparent max-w-full w-full text-text-secondary placeholder:text-text-secondary"
                 value={inputValue}
                 onChange={handleMessageChange}
               />
+              <button className="bg-text-gradient bg-clip-text text-transparent">
+                Send
+              </button>
             </div>
           </div>
-          <button
+          {/* <button
             type="submit"
             className={cn(
               "bg-[#B4B7BB] transition-colors duration-300 aspect-square pl-2.5 p-2",
@@ -159,7 +156,7 @@ export default function ChatBox() {
             )}
           >
             <Icon iconType="plane" className="w-5 text-text-tertiary" />
-          </button>
+          </button> */}
         </form>
       </div>
     </div>

@@ -28,6 +28,7 @@ const config: Config = {
       backgroundImage: {
         "receiver-gradient":
           "linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #101217 79%)",
+        "text-gradient": "linear-gradient(90deg, #EFC3BB 0%, #D8D8EB 100%)",
       },
       fontFamily: {
         "segeo-ui": ["var(--segoe-ui)"],

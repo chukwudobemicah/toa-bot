@@ -1,5 +1,5 @@
 import { cn } from "@/utils/functions";
-import React, { useState } from "react";
+import React from "react";
 import { MessageType } from "./ChatBox";
 
 type MessageProps = {
@@ -7,31 +7,16 @@ type MessageProps = {
 };
 
 const Message = ({ messages }: MessageProps) => {
-  // Define the selectedEmoji as an object with number keys and string values
-  const [selectedEmoji, setSelectedEmoji] = useState<Record<number, string>>(
-    {}
-  );
-  const [isPickerVisible, setIsPickerVisible] = useState(false);
-
-  const onEmojiClick = (emoji: string, messageId: number) => {
-    setSelectedEmoji((prev) => ({
-      ...prev,
-      [messageId]: emoji, // Dynamically set the emoji for the given message ID
-    }));
-    setIsPickerVisible(false); // Hide the picker after selection
-  };
-
   return (
     <>
-      {messages.map(({ id, message, position, time, senderImage, name }) => {
-        const emojiForMessage = selectedEmoji[id]; // Retrieve the emoji for the current message
+      {messages.map(({ id, message, position, name, image }) => {
         return (
           <div
             key={id}
             className={cn(
-              "self-start  flex flex-col relative gap-5 w-full ma-w-[90%]",
+              "self-start  flex flex-col relative gap-5 py-4 w-full ma-w-[90%]",
               {
-                // "self-start items-start": position === "receiver",
+                "bg-receiver-gradient": position === "receiver",
               }
             )}
           >
@@ -53,7 +38,7 @@ const Message = ({ messages }: MessageProps) => {
                   className={cn("w-fit rounded-lg", {
                     "self-start bg-receiver text-text":
                       position === "receiver" && message && message !== "",
-                    "bg-sender px-1 pt-1":
+                    "bg-sender px-1":
                       position === "sender" && message && message !== "",
                   })}
                 >
