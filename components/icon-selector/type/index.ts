@@ -19,6 +19,7 @@ import {
   FireIcon,
   Referral,
   LisitingIcon,
+  ImageClip,
   ChevronUpIcon,
   LayoutGraduent,
   BroadcastIcon,
@@ -313,6 +314,7 @@ export const ICON_TYPE: {
     more: More,
     layoutGraduent: LayoutGraduent,
     //
+    imageClip: ImageClip,
     about: About,
     tierList: TierList,
     history: History,

@@ -1,15 +1,12 @@
 import { cn } from "@/utils/functions";
 import React, { useState } from "react";
 import { MessageType } from "./ChatBox";
-import Icon from "../icon-selector/icon-selector";
-import EmojiPicker from "./EmojiPicker";
-import MoreActions from "./MoreActions";
 
-type ChatProps = {
+type MessageProps = {
   messages: MessageType[];
 };
 
-const Chat = ({ messages }: ChatProps) => {
+const Message = ({ messages }: MessageProps) => {
   // Define the selectedEmoji as an object with number keys and string values
   const [selectedEmoji, setSelectedEmoji] = useState<Record<number, string>>(
     {}
@@ -96,4 +93,4 @@ const Chat = ({ messages }: ChatProps) => {
   );
 };
 
-export default Chat;
+export default Message;

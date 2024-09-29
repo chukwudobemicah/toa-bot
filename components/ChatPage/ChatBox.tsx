@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/utils/functions";
 import Icon from "../icon-selector/icon-selector";
-import Chat from "./Message";
+import Message from "./Message";
 import useChatBoxIsOpenStore from "@/utils/store/useChatBoxIsOpenStore";
 
 export type Position = "receiver" | "sender";
@@ -117,7 +117,7 @@ export default function ChatBox() {
           ref={chatBoxBottomRef}
           className="w-full overflow-y-auto h-full scroll-container relative flex flex-col gap-6 pt-6 pb-8 px-4"
         >
-          <Chat messages={messages} />
+          <Message messages={messages} />
 
           {/* {showPicker && (
             <div className="absolute z-50 left-1/2 top-0 -translate-x-1/2">
