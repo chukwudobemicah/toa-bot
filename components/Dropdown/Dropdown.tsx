@@ -14,7 +14,10 @@ const Trigger = forwardRef<TriggerElement, TriggerProps>((props, ref) => {
 
   return (
     <DropdownMenu.Trigger
-      className={cn("cursor-pointer ", className)}
+      className={cn(
+        "cursor-pointer border border-border text-text-secondary bg-transparent py-2 px-4 rounded-full",
+        className
+      )}
       asChild={asChild}
       {...triggerProps}
       ref={ref}
@@ -41,7 +44,7 @@ const Content = forwardRef<ContentElement, ContentProps>((props, ref) => {
         sideOffset={6}
         side="bottom"
         className={cn(
-          "outline-none overflow-hidden rounded-lg shadow-2xl z-[99999999]  shadow-black/10 cursor-pointer dropdown-content",
+          "outline-none overflow-hidden text-sm text-text-secondary rounded-lg shadow-2xl z-[99999999]  shadow-black/10 cursor-pointer dropdown-content",
           className
         )}
         {...contentProps}
@@ -66,7 +69,7 @@ const Item = forwardRef<ItemElelment, ItemProps>(
   ({ children, ...props }, ref) => {
     return (
       <DropdownMenu.Item
-        className="!outline-none bg-background hover:bg-[#3F1114] min-w-[100px] flex gap-3"
+        className="!outline-none bg-secondary border border-border hover:bg-[#102a5c] min-w-[100px] flex gap-3"
         ref={ref}
         {...props}
       >

@@ -1,48 +1,39 @@
 import * as Slider from "@radix-ui/react-slider";
 import { useState } from "react";
+import { Dropdown } from "../Dropdown/Dropdown";
 
-type PropertiesProps = {
-  platform: string;
-  sort: string;
-  responses: number;
-  recency: number;
-};
-
-export default function Properties({
-  platform,
-  sort,
-  responses,
-  recency,
-}: PropertiesProps) {
-  const [responsesValue, setResponsesValue] = useState<number>(responses);
-  const [recencyValue, setRecencyValue] = useState<number>(recency);
+export default function Properties() {
+  const [responsesValue, setResponsesValue] = useState<number>(0);
+  const [recencyValue, setRecencyValue] = useState<number>(0);
 
   return (
-    <div className="bg-secondary min-w-[200px] text-white p-6 rounded-lg w-64">
-      <h2 className="text-lg font-semibold mb-4">Properties</h2>
+    <div className="bg-secondary min-w-[200px] text-white px-6 pt-4 rounded-lg w-64">
+      <h2 className="font-segeo-ui text-[#EFF4FC] mb-4">Properties</h2>
 
-      <div className="mb-4">
-        <label className="block text-sm mb-1">Platform</label>
-        <select
-          className="bg-gray-800 border border-gray-700 text-white p-2 w-full rounded"
-          defaultValue={platform}
-        >
-          <option value="Twitter">Twitter</option>
-          <option value="Facebook">Facebook</option>
-          <option value="Instagram">Instagram</option>
-        </select>
+      <div className="mb-4 text-sm">
+        <Dropdown.Root>
+          <Dropdown.Trigger>
+            <div>Platform</div>
+          </Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Item>Twitter</Dropdown.Item>
+            <Dropdown.Item>Facebook</Dropdown.Item>
+            <Dropdown.Item>Instagram</Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown.Root>
       </div>
 
-      <div className="mb-4">
-        <label className="block text-sm mb-1">Sort</label>
-        <select
-          className="bg-gray-800 border border-gray-700 text-white p-2 w-full rounded"
-          defaultValue={sort}
-        >
-          <option value="Relevance">Relevance</option>
-          <option value="Date">Date</option>
-          <option value="Popularity">Popularity</option>
-        </select>
+      <div className="mb-4 text-sm">
+        <Dropdown.Root>
+          <Dropdown.Trigger>
+            <div>Sort</div>
+          </Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Item>Relevance</Dropdown.Item>
+            <Dropdown.Item>Date</Dropdown.Item>
+            <Dropdown.Item>Popularity</Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown.Root>
       </div>
 
       <div className="mb-4">
