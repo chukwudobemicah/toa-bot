@@ -29,7 +29,7 @@ export const SIDEBAR_LINK = [
   },
   {
     text: "Tier List",
-    linkto: "/social-sensor",
+    linkto: "/social-tensor",
     icon: "tabFour", // Tier List icon string
   },
   {
