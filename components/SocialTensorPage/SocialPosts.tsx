@@ -1,5 +1,6 @@
 // pages/index.tsx
 import { useState } from "react";
+import Icon from "../icon-selector/icon-selector";
 
 export default function SocialPosts() {
   // Sample data
@@ -70,18 +71,36 @@ export default function SocialPosts() {
             <p className="text-text-secondary text-sm mb-4">{content}</p>
 
             {/* Interaction Icons */}
-            <div className="flex items-center text-gray-500 space-x-6">
-              <div className="flex items-center gap-1 cursor-pointer">
-                {/* <ChatAlt2Icon className="w-5 h-5" /> */}
-                <span className="text-sm">0</span>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center gap-4">
+                <div>
+                  <Icon iconType={"share"} className="w-5 text-text-tertiary" />
+                </div>
+                <div>
+                  <Icon iconType={"copy"} className="w-4 text-text-tertiary" />
+                </div>
+                <div>
+                  <Icon
+                    iconType={"expand"}
+                    className="w-5 text-text-tertiary"
+                  />
+                </div>
               </div>
-              <div className="flex items-center gap-1 cursor-pointer">
-                {/* <RefreshIcon className="w-5 h-5" /> */}
-                <span className="text-sm">0</span>
-              </div>
-              <div className="flex items-center gap-1 cursor-pointer">
-                {/* <HeartIcon className="w-5 h-5" /> */}
-                <span className="text-sm">0</span>
+              {/*  */}
+              <div className="flex items-center text-gray-500 space-x-6">
+                <div className="flex items-center gap-1 cursor-pointer">
+                  {/* <ChatAlt2Icon className="w-5 h-5" /> */}
+
+                  <span className="text-sm">0</span>
+                </div>
+                <div className="flex items-center gap-1 cursor-pointer">
+                  {/* <RefreshIcon className="w-5 h-5" /> */}
+                  <span className="text-sm">0</span>
+                </div>
+                <div className="flex items-center gap-1 cursor-pointer">
+                  {/* <HeartIcon className="w-5 h-5" /> */}
+                  <span className="text-sm">0</span>
+                </div>
               </div>
             </div>
           </div>

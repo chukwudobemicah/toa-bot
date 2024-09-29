@@ -64,6 +64,8 @@ import {
   FriendsIcon,
   TopRatedIcon,
   WatchListIcon,
+  Expand,
+  Share,
   FileUploadIcon,
   GIFIcon,
   Verified,
@@ -340,5 +342,7 @@ export const ICON_TYPE: {
     tabThree: TabThree,
     tabFour: TabFour,
     tabFive: TabFive,
+    expand: Expand,
+    share: Share,
   },
 };
