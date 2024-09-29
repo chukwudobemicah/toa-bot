@@ -101,10 +101,25 @@ export default function ChatBox() {
         }
       )}
     >
-      <h1 className="text-white sticky pt-2 pb-4 bg-background top-0 left-0 font-quicksand text-xl font-bold text-center mb-4">
+      <h1 className="text-white sticky pt-2 pb-4 bg-background top-0 left-0 font-quicksand text-xl font-bold text-center">
         Social Tensor
       </h1>
       <audio ref={audioRef} src="/audio/sent_message.wav" />
+
+      <div className="absolute whitespace-nowrap text-[#9CA3AF] text-sm bottom-24 z-[99] left-1/2 -translate-x-1/2 flex gap-4 items-center">
+        <div className="flex hover:brightness-150 transition-all duration-300 ease-in-out cursor-pointer items-center gap-3 bg-secondary border border-white/10 py-1.5 px-3 rounded-lg">
+          <div>
+            <Icon iconType={"star"} className="w-5" />
+          </div>
+          <p>Can you provide more details?</p>
+        </div>
+        <div className="flex hover:brightness-150 transition-all duration-300 ease-in-out cursor-pointer items-center gap-3 bg-secondary border border-white/10 py-1.5 px-3 rounded-lg">
+          <div>
+            <Icon iconType={"star"} className="w-5" />
+          </div>
+          <p>Can you clarify your request?</p>
+        </div>
+      </div>
 
       <div
         ref={chatBoxContainerRef}
@@ -115,7 +130,7 @@ export default function ChatBox() {
             setShowPicker(false);
           }}
           ref={chatBoxBottomRef}
-          className="w-full overflow-y-auto h-full scroll-container relative flex flex-col pt-6 pb-8 px-4"
+          className="w-full overflow-y-auto h-full scroll-container relative flex flex-col pb-8 px-4"
         >
           <Message messages={messages} />
         </div>
