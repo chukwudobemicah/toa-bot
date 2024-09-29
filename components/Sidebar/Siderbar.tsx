@@ -80,10 +80,10 @@ export default function Sidebar() {
         <div className="flex items-center gap-2 mb-2">
           <div
             className={cn("w-6 ", {
-              "w-7 mx-auto": !sidebarIsOpen,
+              "w-fit mx-auto": !sidebarIsOpen,
             })}
           >
-            <Icon iconType={"logo"} className="w-full" />
+            <Icon iconType={"logo"} className="w-16" />
           </div>
           {sidebarIsOpen && (
             <p className="text-base font-medium">KOL Manager</p>

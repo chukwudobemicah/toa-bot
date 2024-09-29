@@ -3,6 +3,7 @@ import { cn } from "@/utils/functions";
 import Icon from "../icon-selector/icon-selector";
 import useChatBoxIsOpenStore from "@/utils/store/useChatBoxIsOpenStore";
 import Message from "../Message/Message";
+import { motion } from "framer-motion";
 
 export type Position = "receiver" | "sender";
 
@@ -22,6 +23,10 @@ export default function Page2ChatBox() {
   const handleMessageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
+
+  const [selected, setSelected] = useState("Text to Image");
+
+  const options = ["Text to Image", "Image to Image", "Inpaint", "Avatar"];
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -83,9 +88,27 @@ export default function Page2ChatBox() {
         }
       )}
     >
-      <h1 className="text-white sticky pt-2 pb-4 bg-background top-0 left-0 font-quicksand text-xl font-bold text-center">
-        Social Tensor
-      </h1>
+      <div className="sticky border border-border mx-auto mt-4 top-0 left-0 flex w-fit items-center space-x-1 p-1 rounded-full">
+        {options.map((option) => (
+          <button
+            key={option}
+            onClick={() => setSelected(option)}
+            className={`relative px-4 py-2 text-xs rounded-full transition-colors ${
+              selected === option
+                ? "text-white"
+                : "bg-transparent text-gray-400 hover:text-white"
+            }`}
+          >
+            {option}
+            {selected === option && (
+              <motion.div
+                layoutId="options-animation"
+                className="w-full z-[-1] rounded-full h-full bg-[#171A20] absolute left-0 top-0"
+              />
+            )}
+          </button>
+        ))}
+      </div>
       <audio ref={audioRef} src="/audio/sent_message.wav" />
 
       <div
@@ -93,50 +116,26 @@ export default function Page2ChatBox() {
         className="flex-grow h-[80vh] overflow-y-clip pb-12"
       >
         {messages.length < 1 && (
-          <div className=" text-white h-full flex flex-col items-center p-6">
+          <div className=" text-white h-full flex flex-col items-center justify-center p-6">
             {/* Title */}
 
-            {/* Note Section */}
-            {showNote && (
-              <div className="bg-secondary border border-white/10 text-gray-300 py-2 px-3 rounded-lg flex items-center justify-between max-w-lg w-full text-xs mb-8">
-                <p>
-                  Note: Due to the nascent nature of Bittensor, subnets and
-                  their APIs are often unstable. In order to make this service
-                  conducive for production use, we use Akash as a fallback for
-                  requests that fail.
+            <div className="w-4/5 max-w-[600px] rounded-2xl h-[300px] flex items-center justify-center bg-secondary border-2 border-border">
+              <div>
+                <Icon iconType={"picture"} className="w-6 text-text-tertiary" />
+              </div>
+            </div>
+            <div className="flex mt-4 font-segoe-ui-symbol text-sm gap-4 items-center">
+              <button className="bg-[#171A20] rounded-md px-3 py-1.5 transition-all duration-300 ease-in-out hover:brightness-150 cursor-pointer">
+                <p className="bg-text-gradient bg-clip-text text-transparent ">
+                  Reset
                 </p>
-                <button
-                  onClick={() => setShowNote(false)}
-                  className="ml-4 text-gray-500 hover:text-white transition-colors"
-                >
-                  <Icon iconType={"cancel"} className="w-3" />
-                </button>
-              </div>
-            )}
-
-            <div className="flex flex-col gap-4 flex-grow items-center justify-center">
-              {/* Suggested Questions Section */}
-              <div className="text-center mb-4">
-                <h2 className="text-lg font-semibold">Suggested Questions</h2>
-                <p className="text-gray-400 text-xs">
-                  Questions that you might want to ask
+              </button>
+              {/*  */}
+              <button className="bg-[#171A20] rounded-md px-3 py-1.5 transition-all duration-300 ease-in-out hover:brightness-150 cursor-pointer">
+                <p className="opacity-70 bg-text-gradient bg-clip-text text-transparent ">
+                  Reimagine
                 </p>
-              </div>
-
-              {/* Questions Buttons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl w-4/5 mx-auto">
-                {questions.map((question, index) => (
-                  <button
-                    key={index}
-                    className="flex hover:brightness-150 transition-all duration-300 ease-in-out cursor-pointer items-center gap-3 bg-secondary border border-white/10 py-1.5 px-3 rounded-lg text-xs"
-                  >
-                    <div>
-                      <Icon iconType={"star"} className="w-4" />
-                    </div>
-                    <p>{question}</p>
-                  </button>
-                ))}
-              </div>
+              </button>
             </div>
           </div>
         )}

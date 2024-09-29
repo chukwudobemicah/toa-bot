@@ -159,6 +159,7 @@ export { default as LayoutGraduent } from "@/assets/icons/layoutGraduent.svg";
 //
 // Import icons from the SVG assets folder
 export { default as Home } from "@/assets/icons/home.svg";
+export { default as Picture } from "@/assets/icons/picture.svg";
 export { default as Chat } from "@/assets/icons/chat.svg";
 export { default as About } from "@/assets/icons/about.svg";
 export { default as TierList } from "@/assets/icons/tier-list.svg";
