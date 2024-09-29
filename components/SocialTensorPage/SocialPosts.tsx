@@ -87,18 +87,27 @@ export default function SocialPosts() {
                 </div>
               </div>
               {/*  */}
-              <div className="flex items-center text-gray-500 space-x-6">
+              <div className="flex items-center text-gray-500 gap-3">
                 <div className="flex items-center gap-1 cursor-pointer">
                   {/* <ChatAlt2Icon className="w-5 h-5" /> */}
+                  <Icon
+                    iconType={"comment"}
+                    className="w-5 text-text-tertiary"
+                  />
 
                   <span className="text-sm">0</span>
                 </div>
                 <div className="flex items-center gap-1 cursor-pointer">
-                  {/* <RefreshIcon className="w-5 h-5" /> */}
+                  <Icon
+                    iconType={"reload"}
+                    className="w-5 text-text-tertiary"
+                  />
+
                   <span className="text-sm">0</span>
                 </div>
                 <div className="flex items-center gap-1 cursor-pointer">
-                  {/* <HeartIcon className="w-5 h-5" /> */}
+                  <Icon iconType={"heart"} className="w-5 text-text-tertiary" />
+
                   <span className="text-sm">0</span>
                 </div>
               </div>

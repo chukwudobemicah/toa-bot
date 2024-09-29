@@ -181,3 +181,5 @@ export { default as TabFour } from "@/assets/icons/tab-4.svg";
 export { default as TabFive } from "@/assets/icons/tab-5.svg";
 export { default as Share } from "@/assets/icons/share.svg";
 export { default as Expand } from "@/assets/icons/expand.svg";
+export { default as Reload } from "@/assets/icons/reload.svg";
+export { default as Comment } from "@/assets/icons/reload.svg";

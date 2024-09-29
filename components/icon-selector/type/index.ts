@@ -114,6 +114,7 @@ import {
   Dogecoin,
   Eth,
   Usdt,
+  Reload,
   Usdc,
   Home,
   Chat,
@@ -344,5 +345,6 @@ export const ICON_TYPE: {
     tabFive: TabFive,
     expand: Expand,
     share: Share,
+    reload: Reload,
   },
 };
