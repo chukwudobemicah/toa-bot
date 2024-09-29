@@ -40,9 +40,12 @@ export default function Home() {
   return (
     <main>
       <div className="grid bg-[#171A20] px-4 py-6  grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-        {cardData.map(({ imageSrc, title, buttonText }) => {
+        {cardData.map(({ imageSrc, title, buttonText }, index) => {
           return (
-            <div className="relative overflow-hidden bg-background h-[150px] rounded-lg shadow-lg p-4 flex items-center gap-4 w-full">
+            <div
+              key={index}
+              className="relative overflow-hidden bg-background h-[150px] rounded-lg shadow-lg p-4 flex items-center gap-4 w-full"
+            >
               <div className="flex flex-col justify-between h-full">
                 <h3 className="text-white text-xl font-bold">{title}</h3>
                 <Button variant="outline" className="mt-2 w-fit text-sm ">

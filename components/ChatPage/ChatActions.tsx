@@ -1,17 +1,22 @@
 // components/ChatPlaceholder.tsx
 
+import Icon from "../icon-selector/icon-selector";
+
 export default function ChatActions() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-900 text-gray-300">
+    <div className="flex h-screen flex-col min-w-[230px] items-center justifycenter bg-secondary text-gray-300">
       {/* New Chat Button */}
-      <button className="flex items-center gap-2 px-6 py-3 mb-8 bg-gray-800 hover:bg-gray-700 rounded-full text-white shadow-md">
-        {/* <PlusCircleIcon className="w-6 h-6" /> */}= Make a new chat
+      <button className="flex items-center font-segoe-ui-symbol justify-between mt-8 gap-4 px-8 py-4 mb-8 bg-[#18181B] rounded-2xl text-white text-xs">
+        <div>
+          <Icon iconType={"add"} className="w-4 text-white" />
+        </div>
+        <p>Make a new chat</p>
       </button>
 
       {/* No Recent Chats Message */}
-      <div className="text-center">
-        <p className="text-lg font-medium">No recent chats</p>
-        <p className="text-sm text-gray-500">
+      <div className="text-center h-full flex flex-col justify-center items-center">
+        <p className="font-medium text-sm">No recent chats</p>
+        <p className="text-xs text-gray-500">
           Your chat history will appear here
         </p>
       </div>

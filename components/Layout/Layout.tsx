@@ -7,6 +7,7 @@ import { Quicksand } from "next/font/google";
 import Nav from "../Nav/Nav";
 import Sidebar from "../Sidebar/Siderbar";
 import localFont from "next/font/local";
+import { useRouter } from "next/router";
 
 // Segoe UI Symbol
 const segoeUISymbol = localFont({
@@ -51,7 +52,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   const { isMobileSidebarOpen, setIsMobileSidebarOpen, sidebarIsOpen } =
     useSidebarStore();
   useStopScroll(isMobileSidebarOpen);
-
+  const router = useRouter();
   return (
     <div
       id="layout"
@@ -59,7 +60,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         `relative w-full justify-center min-h-screen flex font-segeo-ui flex-col ${segoeUi.className} ${quicksand.className} ${segoeUISymbol.className}`
       )}
     >
-      <Nav />
+      {/* <Nav /> */}
       <Overlay
         isOpen={isMobileSidebarOpen}
         onClick={() => {
@@ -69,11 +70,11 @@ export default function Layout({ children }: { children: ReactNode }) {
       <Sidebar />
       <div
         className={cn(
-          "ml-auto px-4 mt-4 relative max-md:w-full ease-in-out transition-all  overflow-x-clip duration-300 main-content flex-grow md:max-w-[calc(100%-200px)] pb-8 md:w-[calc(100%-200px)] md:flex-grow",
+          "ml-auto px-4 relative max-md:w-full ease-in-out transition-all  overflow-x-clip duration-300 main-content flex-grow md:max-w-[calc(100%-200px)] pb-8 md:w-[calc(100%-200px)] md:flex-grow ",
           {
             " md:max-w-[calc(100%-90px)] md:w-[calc(100%-90px)] ":
               !sidebarIsOpen,
-            // "pb-24": !router.pathname.includes("/token-details"),
+            "h-screen overflow-clip": router.pathname !== "",
           }
         )}
       >

@@ -25,9 +25,9 @@ export default function SocialPosts() {
   ]);
 
   return (
-    <div className="bg-gray-900 min-h-screen p-4">
+    <div className="overflow-y-auto h-screen relative px-4">
       {/* Header */}
-      <h1 className="text-white text-3xl font-bold text-center mb-8">
+      <h1 className="text-white sticky pt-2 pb-4 bg-background top-0 left-0 font-quicksand text-xl font-bold text-center mb-4">
         Social Tensor
       </h1>
 
@@ -36,11 +36,11 @@ export default function SocialPosts() {
         <input
           type="text"
           placeholder="Enter your query"
-          className="w-full max-w-lg px-4 py-2 rounded-full bg-gray-800 text-gray-300 placeholder-gray-500 focus:outline-none"
+          className="w-full max-w-lg px-4 py-4 rounded-full bg-secondary text-[#788493] placeholder:text-[#788493] text-sm focus:outline-none"
         />
-        <button className="ml-4 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-full text-white">
+        {/* <button className="ml-4 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-full text-white">
           Search
-        </button>
+        </button> */}
       </div>
 
       {/* Post Cards */}
@@ -48,7 +48,7 @@ export default function SocialPosts() {
         {posts.map(({ username, content, date }, index) => (
           <div
             key={index}
-            className="bg-gray-800 rounded-lg shadow-md p-4 mt-4"
+            className="bg-secondary rounded-lg shadow-md p-4 mt-4"
           >
             {/* Header: Profile and Username */}
             <div className="flex items-center mb-4">
@@ -64,7 +64,7 @@ export default function SocialPosts() {
             </div>
 
             {/* Content */}
-            <p className="text-gray-300 mb-4">{content}</p>
+            <p className="text-text-secondary text-sm mb-4">{content}</p>
 
             {/* Interaction Icons */}
             <div className="flex items-center text-gray-500 space-x-6">

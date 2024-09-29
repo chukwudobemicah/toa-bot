@@ -18,8 +18,8 @@ export default function Properties({
   const [recencyValue, setRecencyValue] = useState<number>(recency);
 
   return (
-    <div className="bg-gray-900 text-white p-6 rounded-lg w-64">
-      <h2 className="text-xl font-semibold mb-4">Properties</h2>
+    <div className="bg-secondary min-w-[200px] text-white p-6 rounded-lg w-64">
+      <h2 className="text-lg font-semibold mb-4">Properties</h2>
 
       <div className="mb-4">
         <label className="block text-sm mb-1">Platform</label>
@@ -49,7 +49,7 @@ export default function Properties({
         <label className="block text-sm mb-1">Responses</label>
         <Slider.Root
           className="relative flex items-center w-full h-5"
-          defaultValue={[responsesValue]}
+          defaultValue={[0]}
           min={0}
           max={10}
           step={1}
@@ -69,7 +69,7 @@ export default function Properties({
         <label className="block text-sm mb-1">Recency (days)</label>
         <Slider.Root
           className="relative flex items-center w-full h-5"
-          defaultValue={[recencyValue]}
+          defaultValue={[0]}
           min={0}
           max={365}
           step={1}

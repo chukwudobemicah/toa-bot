@@ -19,7 +19,10 @@ const config: Config = {
       colors: {
         primary: "#3474F4",
         background: "#000000",
-        foreground: "var(--foreground)",
+        foreground: "#101217",
+        secondary: "#101217",
+        border: "#262626",
+        "text-secondary": "#B1B9C4",
       },
       fontFamily: {
         "segeo-ui": ["var(--segoe-ui)"],
