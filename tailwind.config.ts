@@ -23,6 +23,11 @@ const config: Config = {
         secondary: "#101217",
         border: "#262626",
         "text-secondary": "#B1B9C4",
+        "text-tertiary": "#788493",
+      },
+      backgroundImage: {
+        "receiver-gradient":
+          "linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #101217 79%)",
       },
       fontFamily: {
         "segeo-ui": ["var(--segoe-ui)"],

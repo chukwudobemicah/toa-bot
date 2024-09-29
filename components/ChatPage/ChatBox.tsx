@@ -23,7 +23,7 @@ export default function ChatBox() {
       message: "Hey! How are you?",
       time: "10:00 AM",
       senderImage: "/path",
-      name: "Jack",
+      name: "Cortex.t Ultra",
       position: "receiver",
     },
     {
@@ -31,7 +31,7 @@ export default function ChatBox() {
       message: "I'm doing well, thank you!",
       time: "10:02 AM",
       senderImage: "/path",
-      name: "Jack",
+      name: "Cortex.t Ultra",
       position: "sender",
     },
     {
@@ -39,7 +39,7 @@ export default function ChatBox() {
       message: "That's great to hear!",
       time: "10:05 AM",
       senderImage: "/path",
-      name: "Jack",
+      name: "Cortex.t Ultra",
       position: "receiver",
     },
   ]);
@@ -95,37 +95,17 @@ export default function ChatBox() {
   return (
     <div
       className={cn(
-        "flex max-md:w-full lg:min-w-[600px] z-50 max-md:left-0 right-0 left-0 h-dvh max-sm:w-screen transition-transform duration-500  ease-in-out bg-background relative flex-col box-border max-h-full flex-grow max-lg:w-screen max-lg:translate-x-[200%] max-lg:absolute",
+        "flex w-full z-50 max-md:left-0 right-0 left-0 h-dvh transition-transform duration-500  ease-in-out bg-background relative flex-col box-border max-h-full flex-grow max-lg:w-screen max-lg:translate-x-[200%] max-lg:absolute",
         {
           "max-lg:translate-x-0": chatboxIsOpen,
         }
       )}
     >
+      <h1 className="text-white sticky pt-2 pb-4 bg-background top-0 left-0 font-quicksand text-xl font-bold text-center mb-4">
+        Social Tensor
+      </h1>
       <audio ref={audioRef} src="/audio/sent_message.wav" />
 
-      <div className="px-4 flex border-b border-b-border pb-2 w-full gap-4 items-center">
-        <div className="flex flex-col flex-grow">
-          <div className="flex justify-between lg:gap-2 items-center">
-            <div className="flex items-center gap-4">
-              <img
-                src={"https://placehold.co/36x36"}
-                className="rounded-full"
-              />
-              <p className="text-base font-mulish shorten-text max-sm:max-w-[150px] max-lg:max-w[200px] text-text-secondary">
-                MadApes Calls
-              </p>
-            </div>
-            {/*  */}
-            <div
-              onClick={() => {
-                setChatboxIsOpen(false);
-              }}
-            >
-              <Icon iconType={"cancel"} className="w-4" />
-            </div>
-          </div>
-        </div>
-      </div>
       <div
         ref={chatBoxContainerRef}
         className="flex-grow h-[80vh] overflow-y-clip pb-12"
@@ -159,12 +139,6 @@ export default function ChatBox() {
             <input name="image" id="image" className="hidden" type="file" />
           </label>
           <div className="relative flex-grow">
-            <div onClick={() => setShowPicker(true)}>
-              <Icon
-                iconType="smileyFace"
-                className="right-4 top-1/2 w-7 -translate-y-1/2 absolute  text-text-secondary"
-              />
-            </div>
             <div className="flex w-full gap-4 flex-col">
               <input
                 type="text"

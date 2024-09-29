@@ -39,7 +39,7 @@ export default function SocialPosts() {
         <input
           type="text"
           placeholder="Enter your query"
-          className="w-full max-w-lg px-4 py-4 bg-secondary text-[#788493] placeholder:text-[#788493] text-sm focus:outline-none"
+          className="w-full max-w-lg px-4 py-4 bg-secondary text-text-tertiary placeholder:text-text-tertiary text-sm focus:outline-none"
         />
         {/* <button className="ml-4 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-full text-white">
           Search
