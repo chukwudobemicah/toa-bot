@@ -60,16 +60,16 @@ export default function Sidebar() {
   const router = useRouter();
   const { screenWidth } = useScreenSize();
 
-  useEffect(() => {
-    console.log(screenWidth, screenWidth < 760, "screenWidth");
+  // useEffect(() => {
+  //   console.log(screenWidth, screenWidth < 760, "screenWidth");
 
-    if (screenWidth < 760) {
-      setSidebarIsOpen(true);
-    }
-    if (screenWidth > 760) {
-      setSidebarIsOpen(false);
-    }
-  }, []);
+  //   if (screenWidth < 760) {
+  //     setSidebarIsOpen(true);
+  //   }
+  //   if (screenWidth > 760) {
+  //     setSidebarIsOpen(false);
+  //   }
+  // }, []);
 
   return (
     <aside

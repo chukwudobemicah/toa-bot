@@ -78,6 +78,7 @@ export default function Layout({ children }: { children: ReactNode }) {
               !sidebarIsOpen,
             "h-screen max-lg:h-[calc(100vh-84px)] overflow-clip":
               router.pathname !== "/page-4",
+            "z-[-1]": isMobileSidebarOpen,
           }
         )}
       >
