@@ -4,6 +4,7 @@ import { cn } from "@/utils/functions";
 import useSidebarStore from "@/utils/store/useSidebarStore";
 import Hamburger from "hamburger-react";
 import Button from "../Button/button";
+import Image from "next/image";
 
 export default function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,6 +27,7 @@ export default function Nav() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const { setIsAddChatOpen, isAddChatOpen } = useSidebarStore();
 
   return (
     <nav
@@ -50,9 +52,31 @@ export default function Nav() {
         />
       </div> */}
 
-      <div className="flex py-2 items-center justify-between px-5 w-full">
+      <div className="flex items-center justify-between px-5 w-full h-full">
+        <div
+          onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
+          className="lg:hidden"
+        >
+          <Hamburger size={24} toggled={isMobileSidebarOpen} />
+        </div>
+
         <div className="lg:hidden flex items-center gap-2">
-          <Icon iconType={"logo"} className="w-8" />
+          <Image
+            src={"/images/logo.webp"}
+            width={64}
+            height={64}
+            className="size-[36px]"
+          />
+        </div>
+        <div
+          onClick={() => {
+            setIsAddChatOpen(!isAddChatOpen);
+            console.log("yes", isAddChatOpen);
+          }}
+          className="lg:hidden flex items-center gap-2"
+        >
+          <Icon iconType={"add"} className="w-6" />
+
           {/* <p className="font-bold">Kol Manager</p> */}
         </div>
 
@@ -79,13 +103,6 @@ export default function Nav() {
         </div> */}
 
         {/*  */}
-
-        <div
-          onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
-          className="lg:hidden"
-        >
-          <Hamburger toggled={isMobileSidebarOpen} />
-        </div>
       </div>
     </nav>
   );

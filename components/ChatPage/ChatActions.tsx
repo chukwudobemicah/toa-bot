@@ -1,10 +1,20 @@
 // components/ChatPlaceholder.tsx
 
+import useSidebarStore from "@/utils/store/useSidebarStore";
 import Icon from "../icon-selector/icon-selector";
+import { cn } from "@/utils/functions";
 
 export default function ChatActions() {
+  const { isAddChatOpen } = useSidebarStore();
   return (
-    <div className="flex h-screen flex-col min-w-[230px] items-center justifycenter bg-secondary text-gray-300">
+    <div
+      className={cn(
+        "flex h-screen max-lg:z-[99999999] transition-all duration-300 ease-in-out max-lg:w-[60vh] max-lg:translate-x-[200%] max-lg:absolute max-lg:right-0  flex-col min-w-[230px] items-center justifycenter bg-secondary text-gray-300",
+        {
+          "max-lg:!translate-x-0": isAddChatOpen,
+        }
+      )}
+    >
       {/* New Chat Button */}
       <button className="flex items-center font-segoe-ui-symbol justify-between mt-8 gap-4 px-8 py-4 mb-8 bg-[#18181B] rounded-2xl text-white text-xs">
         <div>
