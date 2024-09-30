@@ -39,7 +39,7 @@ export default function Nav() {
         }
       )}
     >
-      {/* <div
+      <div
         onClick={() => {
           setSidebarIsOpen(!sidebarIsOpen);
           console.log(sidebarIsOpen, "click");
@@ -50,7 +50,7 @@ export default function Nav() {
           iconType={"sidebarArrow"}
           className="w-2  group-hover:text-black transition-all duration-300 ease-in-out text-black rotate-180"
         />
-      </div> */}
+      </div>
 
       <div className="flex items-center justify-between px-5 w-full h-full">
         <div

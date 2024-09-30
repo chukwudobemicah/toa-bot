@@ -14,27 +14,27 @@ export const SIDEBAR_LINK = [
     icon: "home", // Home icon string
   },
   {
-    text: "Chat",
+    text: "Page One",
     linkto: "/page-2",
     icon: "tabOne", // Chat icon string
   },
   {
-    text: "Profile",
+    text: "Page Two",
     linkto: "/page-3",
     icon: "tabTwo", // Profile icon string
   },
   {
-    text: "About Us",
+    text: "Page Three",
     linkto: "/page-4",
     icon: "tabThree", // About Us icon string
   },
   {
-    text: "Tier List",
+    text: "Page four",
     linkto: "/page-5",
     icon: "tabFour", // Tier List icon string
   },
   {
-    text: "Tier List",
+    text: "Page five",
     linkto: "/page-5",
     icon: "tabFive", // Tier List icon string
   },
@@ -121,6 +121,7 @@ export default function Sidebar() {
                         link?.linkto?.toLowerCase() !==
                         router.pathname.toLowerCase(),
                       "aspect-square size-9 justify-center": !sidebarIsOpen,
+                      "pl-4": sidebarIsOpen,
                     }
                   )}
                 >
@@ -155,6 +156,7 @@ export default function Sidebar() {
         className={cn("py-2 w-full font-lato flex flex-col gap-6 mt-8", {
           "aspect-square size-12 justify-center px-0 py-4 mx-auto":
             !sidebarIsOpen,
+          "pl-5": sidebarIsOpen,
         })}
       >
         {/* <Link
@@ -198,11 +200,18 @@ export default function Sidebar() {
             "justify-center": !sidebarIsOpen,
           })}
         >
-          <div className="flex items-center gap-4">
+          <div className="flex group cursor-pointer items-center gap-4">
             <div>
-              <Icon iconType={"logout"} className="w-4" />
+              <Icon
+                iconType={"logout"}
+                className="w-4 group-hover:text-red-600 transition-all duration-300 ease-in-out"
+              />
             </div>
-            {sidebarIsOpen && <p>Logout</p>}
+            {sidebarIsOpen && (
+              <p className="group-hover:text-red-600 transition-all duration-300 ease-in-out">
+                Logout
+              </p>
+            )}
           </div>
         </div>
         <div
@@ -210,11 +219,18 @@ export default function Sidebar() {
             "justify-center": !sidebarIsOpen,
           })}
         >
-          <div className="flex items-center gap-4">
+          <div className="group cursor-pointer flex items-center gap-4">
             <div>
-              <Icon iconType={"settings"} className="w-4" />
+              <Icon
+                iconType={"settings"}
+                className="w-4 group-hover:text-primary transition-all duration-300 ease-in-out"
+              />
             </div>
-            {sidebarIsOpen && <p>Settings</p>}
+            {sidebarIsOpen && (
+              <p className="group-hover:text-primary transition-all duration-300 ease-in-out">
+                Settings
+              </p>
+            )}
           </div>
         </div>
 
