@@ -44,7 +44,7 @@ const Message = ({ messages }: MessageProps) => {
                   })}
                 >
                   {imageMessageUrl && (
-                    <div className="lg:max-w-[300px] overflow-hidden">
+                    <div className="lg:max-w-[300px] border-2 rounded-xl border-primary overflow-hidden">
                       <img
                         src={imageMessageUrl}
                         alt="Selected File Preview"
