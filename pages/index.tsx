@@ -68,9 +68,9 @@ export default function Home() {
               ref={(el) => {
                 if (el) cardRefs.current[index] = el;
               }}
-              className="border-b hover:brightness-150 transition-all duration-300 ease-in-out group border-b-[#818AB1] pb-4"
+              className="border-b group border-b-[#818AB1] pb-4"
             >
-              <div className="aspect-[16/6] relative group cursor-pointer overflow-hidden bg-background rounded-lg shadow-lg p-4 flex items-center gap-4 w-full">
+              <div className="aspect-[16/6] hover:brightness-150 transition-all duration-300 ease-in-out relative group cursor-pointer overflow-hidden bg-background rounded-lg shadow-lg p-4 flex items-center gap-4 w-full">
                 <div className="flex flex-col justify-between h-full">
                   <h3 className="text-white text-2xl font-bold">{title}</h3>
                   <Button
