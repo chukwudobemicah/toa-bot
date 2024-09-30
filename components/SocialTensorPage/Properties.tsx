@@ -1,19 +1,25 @@
 import * as Slider from "@radix-ui/react-slider";
 import { useState } from "react";
 import { Dropdown } from "../Dropdown/Dropdown";
+import Icon from "../icon-selector/icon-selector";
 
 export default function Properties() {
   const [responsesValue, setResponsesValue] = useState<number>(0);
   const [recencyValue, setRecencyValue] = useState<number>(0);
 
   return (
-    <div className="bg-secondary min-w-[200px] text-white px-6 pt-4 rounded-lg w-64">
+    <div className="bg-secondary min-w-[200px] xl:w-[300px] text-white px-6 pt-4 rounded-lg w-64">
       <h2 className="font-segeo-ui text-[#EFF4FC] mb-4">Properties</h2>
 
       <div className="mb-4 text-sm">
         <Dropdown.Root>
           <Dropdown.Trigger>
-            <div>Platform</div>
+            <div className="flex items-center justify-between">
+              <p>Platform</p>
+              <div>
+                <Icon iconType={"chevron"} className="w-4 text-text-tertiary" />
+              </div>
+            </div>
           </Dropdown.Trigger>
           <Dropdown.Content>
             <Dropdown.Item>Twitter</Dropdown.Item>
@@ -26,7 +32,17 @@ export default function Properties() {
       <div className="mb-4 text-sm">
         <Dropdown.Root>
           <Dropdown.Trigger>
-            <div>Sort</div>
+            <Dropdown.Trigger>
+              <div className="flex items-center justify-between">
+                <p>Sort</p>
+                <div>
+                  <Icon
+                    iconType={"chevron"}
+                    className="w-4 text-text-tertiary"
+                  />
+                </div>
+              </div>
+            </Dropdown.Trigger>
           </Dropdown.Trigger>
           <Dropdown.Content>
             <Dropdown.Item>Relevance</Dropdown.Item>
@@ -39,17 +55,17 @@ export default function Properties() {
       <div className="mb-4">
         <label className="block text-sm mb-1">Responses</label>
         <Slider.Root
-          className="relative flex items-center w-full h-5"
+          className="relative flex items-center w-full h-5 SliderRoot"
           defaultValue={[0]}
           min={0}
           max={10}
           step={1}
           onValueChange={(value) => setResponsesValue(value[0])}
         >
-          <Slider.Track className="bg-gray-700 relative flex-grow h-1 rounded">
-            <Slider.Range className="absolute bg-blue-500 h-full rounded" />
+          <Slider.Track className="bg-gray-700 relative flex-grow h-1 rounded SliderTrack">
+            <Slider.Range className="absolute bg-blue-500 h-full rounded SliderRange" />
           </Slider.Track>
-          <Slider.Thumb className="block w-4 h-4 bg-blue-500 rounded-full" />
+          <Slider.Thumb className="block w-4 h-4 bg-blue-500 rounded-full SliderThumb !cursor-grab" />
         </Slider.Root>
         <span className="block text-sm text-gray-400 mt-2">
           Value: {responsesValue}
@@ -59,17 +75,17 @@ export default function Properties() {
       <div>
         <label className="block text-sm mb-1">Recency (days)</label>
         <Slider.Root
-          className="relative flex items-center w-full h-5"
+          className="relative flex items-center w-full h-5 SliderRoot"
           defaultValue={[0]}
           min={0}
           max={365}
           step={1}
           onValueChange={(value) => setRecencyValue(value[0])}
         >
-          <Slider.Track className="bg-gray-700 relative flex-grow h-1 rounded">
-            <Slider.Range className="absolute bg-blue-500 h-full rounded" />
+          <Slider.Track className="bg-gray-700 relative flex-grow h-1 rounded SliderTrack">
+            <Slider.Range className="absolute bg-blue-500 h-full rounded SliderRange" />
           </Slider.Track>
-          <Slider.Thumb className="block w-4 h-4 bg-blue-500 rounded-full" />
+          <Slider.Thumb className="block w-4 h-4 bg-blue-500 rounded-full SliderThumb !cursor-grab" />
         </Slider.Root>
         <span className="block text-sm text-gray-400 mt-2">
           Value: {recencyValue}

@@ -8,9 +8,6 @@ export default function ChatActions() {
   const { isAddChatOpen } = useSidebarStore();
   return (
     <div
-      onClick={() => {
-        console.log("chats");
-      }}
       className={cn(
         "flex h-screen max-lg:h-[calc(100vh-64px)] max-lg:z-[9999999999] transition-all duration-300 ease-in-out max-lg:w-[80vw] max-lg:translate-x-[200%] max-lg:absolute max-lg:right-0  flex-col lg:min-w-[230px] items-center justifycenter bg-secondary text-gray-300",
         {

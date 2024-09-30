@@ -48,7 +48,7 @@ export default function SocialPosts() {
       </div>
 
       {/* Post Cards */}
-      <div className="max-w-2xl mx-auto">
+      <div className="mx-auto">
         {posts.map(({ username, content, date }, index) => (
           <div
             key={index}

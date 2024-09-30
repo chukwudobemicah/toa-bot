@@ -5,7 +5,7 @@ import React, { ReactElement } from "react";
 
 export default function SocialTensor() {
   return (
-    <div>
+    <div className="w-full">
       <SocialPosts />
       {/* <ChatBox /> */}
     </div>

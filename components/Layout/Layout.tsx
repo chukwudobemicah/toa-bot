@@ -62,13 +62,13 @@ export default function Layout({ children }: { children: ReactNode }) {
       )}
     >
       <Nav />
-      <Overlay
+      {/* <Overlay
         isOpen={isMobileSidebarOpen}
         onClick={() => {
           setIsMobileSidebarOpen(false);
           // setIsAddChatOpen(false);
         }}
-      />
+      /> */}
       <Sidebar />
       <div
         className={cn(
