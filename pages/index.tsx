@@ -10,32 +10,32 @@ export default function Home() {
   const cardData = [
     {
       title: "Social Tensor",
-      imageSrc: "/images/your_image.png",
+      imageSrc: "/images/tensor-ball.webp",
       buttonText: "Subnet 18",
     },
     {
       title: "Social Tensor",
-      imageSrc: "/images/your_image.png",
+      imageSrc: "/images/tensor-ball-2.webp",
       buttonText: "Subnet 18",
     },
     {
       title: "Social Tensor",
-      imageSrc: "/images/your_image.png",
+      imageSrc: "/images/tensor-ball-3.webp",
       buttonText: "Subnet 18",
     },
     {
       title: "Social Tensor",
-      imageSrc: "/images/your_image.png",
+      imageSrc: "/images/tensor-ball-4.webp",
       buttonText: "Subnet 18",
     },
     {
       title: "Social Tensor",
-      imageSrc: "/images/your_image.png",
+      imageSrc: "/images/tensor-ball-5.webp",
       buttonText: "Subnet 18",
     },
     {
       title: "Social Tensor",
-      imageSrc: "/images/your_image.png",
+      imageSrc: "/images/tensor-ball-6.webp",
       buttonText: "Subnet 18",
     },
   ];
@@ -61,7 +61,7 @@ export default function Home() {
         </p>
       </div>
       <div className="grid bg-[#171A20] px-4 py-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2  2xl:grid-cols-3 gap-3">
-        {cardData.map(({ title, buttonText }, index) => {
+        {cardData.map(({ title, buttonText, imageSrc }, index) => {
           return (
             <div
               key={index}
@@ -81,7 +81,7 @@ export default function Home() {
                   </Button>
                 </div>
                 <Image
-                  src={"/images/tensor-ball.webp"}
+                  src={imageSrc}
                   alt="tensor ball"
                   width={200}
                   height={200}
