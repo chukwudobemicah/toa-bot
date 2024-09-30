@@ -106,7 +106,7 @@ export default function ChatBox() {
       </h1>
       <audio ref={audioRef} src="/audio/sent_message.wav" />
 
-      <div className="absolute whitespace-nowrap text-[#9CA3AF] text-sm bottom-24 z-[99] left-1/2 -translate-x-1/2 flex gap-4 items-center">
+      <div className="absolute max-xs:flex-col whitespace-nowrap text-[#9CA3AF] text-sm bottom-24 z-[99] left-1/2 -translate-x-1/2 flex gap-4 items-center">
         <div className="flex hover:brightness-150 transition-all duration-300 ease-in-out cursor-pointer items-center gap-3 bg-secondary border border-white/10 py-1.5 px-3 rounded-lg">
           <div>
             <Icon iconType={"star"} className="w-5" />
