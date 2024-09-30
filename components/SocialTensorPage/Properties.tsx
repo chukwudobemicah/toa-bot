@@ -6,6 +6,8 @@ import Icon from "../icon-selector/icon-selector";
 export default function Properties() {
   const [responsesValue, setResponsesValue] = useState<number>(0);
   const [recencyValue, setRecencyValue] = useState<number>(0);
+  const [platform, setPlatform] = useState<string>("Platform");
+  const [sort, setSort] = useState<string>("Sort");
 
   return (
     <div className="bg-secondary min-w-[200px] xl:w-[300px] text-white px-6 pt-4 rounded-lg w-64">
@@ -15,16 +17,22 @@ export default function Properties() {
         <Dropdown.Root>
           <Dropdown.Trigger>
             <div className="flex items-center justify-between">
-              <p>Platform</p>
+              <p>{platform}</p>
               <div>
                 <Icon iconType={"chevron"} className="w-4 text-text-tertiary" />
               </div>
             </div>
           </Dropdown.Trigger>
           <Dropdown.Content>
-            <Dropdown.Item>Twitter</Dropdown.Item>
-            <Dropdown.Item>Facebook</Dropdown.Item>
-            <Dropdown.Item>Instagram</Dropdown.Item>
+            <Dropdown.Item onClick={() => setPlatform("Twitter")}>
+              Twitter
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => setPlatform("Facebook")}>
+              Facebook
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => setPlatform("Instagram")}>
+              Instagram
+            </Dropdown.Item>
           </Dropdown.Content>
         </Dropdown.Root>
       </div>
@@ -32,22 +40,21 @@ export default function Properties() {
       <div className="mb-4 text-sm">
         <Dropdown.Root>
           <Dropdown.Trigger>
-            <Dropdown.Trigger>
-              <div className="flex items-center justify-between">
-                <p>Sort</p>
-                <div>
-                  <Icon
-                    iconType={"chevron"}
-                    className="w-4 text-text-tertiary"
-                  />
-                </div>
+            <div className="flex items-center justify-between">
+              <p>{sort}</p>
+              <div>
+                <Icon iconType={"chevron"} className="w-4 text-text-tertiary" />
               </div>
-            </Dropdown.Trigger>
+            </div>
           </Dropdown.Trigger>
           <Dropdown.Content>
-            <Dropdown.Item>Relevance</Dropdown.Item>
-            <Dropdown.Item>Date</Dropdown.Item>
-            <Dropdown.Item>Popularity</Dropdown.Item>
+            <Dropdown.Item onClick={() => setSort("Relevance")}>
+              Relevance
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => setSort("Date")}>Date</Dropdown.Item>
+            <Dropdown.Item onClick={() => setSort("Popularity")}>
+              Popularity
+            </Dropdown.Item>
           </Dropdown.Content>
         </Dropdown.Root>
       </div>

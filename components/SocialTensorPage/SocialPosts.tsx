@@ -34,7 +34,7 @@ export default function SocialPosts() {
 
       {/* Search Bar */}
       <div
-        className="flex pr-4 bg-secondary items-center border rounded-2xl overflow-hidden border-border
+        className="flex pr-4 ring-2 transition-all duration-300 ease-in-out ring-transparent focus-within:ring-primary bg-secondary items-center border rounded-2xl overflow-hidden border-border
        mb-8"
       >
         <input
