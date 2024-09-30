@@ -14,6 +14,7 @@ export type MessageType = {
   image?: string;
   time: string;
   position: Position;
+  imageMessageUrl?: string | boolean;
 };
 
 export default function Page2ChatBox() {
@@ -27,24 +28,6 @@ export default function Page2ChatBox() {
   const [selected, setSelected] = useState("Text to Image");
 
   const options = ["Text to Image", "Image to Image", "Inpaint", "Avatar"];
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (inputValue.trim()) {
-      const newMessage: MessageType = {
-        id: messages.length + 1,
-        message: inputValue,
-        time: new Date().toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-        }),
-        position: "sender",
-      };
-      setMessages([...messages, newMessage]);
-      setInputValue(""); // Clear the input after sending the message
-    }
-  };
-
   const chatBoxBottomRef = useRef<HTMLDivElement | null>(null);
   const chatBoxContainerRef = useRef<HTMLDivElement | null>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -62,15 +45,6 @@ export default function Page2ChatBox() {
     }
   }, [messages]); // Scroll to the bottom when messages update
 
-  const [showPicker, setShowPicker] = useState(false);
-
-  const onEmojiClick = (emojiObject: { emoji: string }) => {
-    if (!emojiObject) return;
-    setInputValue((prevInput) => prevInput + emojiObject.emoji);
-    setShowPicker(false);
-  };
-  const [showNote, setShowNote] = useState(true);
-
   const { setChatboxIsOpen, chatboxIsOpen } = useChatBoxIsOpenStore();
   const questions = [
     "Machine learning vs. deep learning: what's the difference?",
@@ -79,6 +53,42 @@ export default function Page2ChatBox() {
     "Stack vs. queue: what's the difference?",
     "Can you explain the Turing test?",
   ];
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [chosenImage, setChosenImage] = useState<string>("");
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    setSelectedFile(file);
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setChosenImage(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setChosenImage("");
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (inputValue.trim() || chosenImage) {
+      const newMessage: MessageType = {
+        id: messages.length + 1,
+        message: inputValue,
+        time: new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+        position: "sender",
+        imageMessageUrl: chosenImage ?? false,
+      };
+      setMessages([...messages, newMessage]);
+      setInputValue(""); // Clear the input after sending the message
+      setChosenImage("");
+      setSelectedFile("");
+    }
+  };
   return (
     <div
       className={cn(
@@ -140,9 +150,6 @@ export default function Page2ChatBox() {
           </div>
         )}
         <div
-          onClick={() => {
-            setShowPicker(false);
-          }}
           ref={chatBoxBottomRef}
           className="w-full overflow-y-auto h-full scroll-container relative flex flex-col pb-8 px-4"
         >
@@ -150,6 +157,26 @@ export default function Page2ChatBox() {
         </div>
       </div>
       <div className="absolute bottom-4 left-0 w-full">
+        {chosenImage && (
+          <div className="relative flex w-full items-end justify-end">
+            <div className="relative w-[300px] -translate-x-4">
+              <button
+                className="absolute z-50 -top-4 -left-4"
+                onClick={() => {
+                  setChosenImage("");
+                }}
+              >
+                {/* close */}
+                <Icon iconType="close" className="w-8" />
+              </button>
+              <img
+                src={chosenImage}
+                alt="Selected File preview"
+                className="w-full rounded-xl"
+              />
+            </div>
+          </div>
+        )}
         <form
           onSubmit={handleSubmit}
           className="relative bg-background flex px-4 w-full gap-4 items-center"
@@ -161,7 +188,13 @@ export default function Page2ChatBox() {
                 htmlFor="image"
               >
                 <Icon iconType="imageClip" className="w-4" />
-                <input name="image" id="image" className="hidden" type="file" />
+                <input
+                  onChange={handleFileChange}
+                  name="image"
+                  id="image"
+                  className="hidden"
+                  type="file"
+                />
               </label>
               <input
                 type="text"
