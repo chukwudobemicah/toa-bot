@@ -74,7 +74,8 @@ export default function Layout({ children }: { children: ReactNode }) {
           {
             " md:max-w-[calc(100%-90px)] md:w-[calc(100%-90px)] ":
               !sidebarIsOpen,
-            "h-screen overflow-clip": router.pathname !== "",
+            "h-screen max-lg:h-[calc(100vh-84px)] overflow-clip":
+              router.pathname !== "",
           }
         )}
       >
