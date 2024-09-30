@@ -14,30 +14,30 @@ export const SIDEBAR_LINK = [
     icon: "home", // Home icon string
   },
   {
-    text: "Page One",
+    text: "Page Two",
     linkto: "/page-2",
     icon: "tabOne", // Chat icon string
   },
   {
-    text: "Page Two",
+    text: "Page Three",
     linkto: "/page-3",
     icon: "tabTwo", // Profile icon string
   },
   {
-    text: "Page Three",
+    text: "Page four",
     linkto: "/page-4",
     icon: "tabThree", // About Us icon string
   },
   {
-    text: "Page four",
+    text: "Page five",
     linkto: "/page-5",
     icon: "tabFour", // Tier List icon string
   },
-  {
-    text: "Page five",
-    linkto: "/page-5",
-    icon: "tabFive", // Tier List icon string
-  },
+  // {
+  //   text: "Page five",
+  //   linkto: "/page-5",
+  //   icon: "tabFive", // Tier List icon string
+  // },
   // {
   //   text: "History",
   //   linkto: "/history",
