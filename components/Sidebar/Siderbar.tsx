@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { cn } from "@/utils/functions";
 import Icon from "../icon-selector/icon-selector";
 import Link from "next/link";
 import useSidebarStore from "@/utils/store/useSidebarStore";
 import { useRouter } from "next/router";
-import useScreenSize from "@/utils/hooks/useScreenSize";
 import { motion } from "framer-motion";
 
 export const SIDEBAR_LINK = [
@@ -51,25 +50,9 @@ export const SIDEBAR_LINK = [
 ];
 
 export default function Sidebar() {
-  const {
-    isMobileSidebarOpen,
-    setIsMobileSidebarOpen,
-    sidebarIsOpen,
-    setSidebarIsOpen,
-  } = useSidebarStore();
+  const { isMobileSidebarOpen, setIsMobileSidebarOpen, sidebarIsOpen } =
+    useSidebarStore();
   const router = useRouter();
-  const { screenWidth } = useScreenSize();
-
-  // useEffect(() => {
-  //   console.log(screenWidth, screenWidth < 760, "screenWidth");
-
-  //   if (screenWidth < 760) {
-  //     setSidebarIsOpen(true);
-  //   }
-  //   if (screenWidth > 760) {
-  //     setSidebarIsOpen(false);
-  //   }
-  // }, []);
 
   return (
     <aside

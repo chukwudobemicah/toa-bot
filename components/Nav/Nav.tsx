@@ -57,6 +57,7 @@ export default function Nav() {
           onClick={() => {
             setIsMobileSidebarOpen(!isMobileSidebarOpen);
             setIsAddChatOpen(false);
+            setSidebarIsOpen(true);
           }}
           className="lg:hidden"
         >
