@@ -62,7 +62,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <div
       id="layout"
       className={cn(
-        `relative w-full justify-center min-h-screen flex font-segeo-ui flex-col ${segoeUi.className} ${quicksand.className} ${segoeUISymbol.className}`
+        `relative w-full mx-auto justify-center min-h-screen flex font-segeo-ui flex-col ${segoeUi.className} ${quicksand.className} ${segoeUISymbol.className}`
       )}
     >
       <Nav />
@@ -81,7 +81,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             " md:max-w-[calc(100%-90px)] md:w-[calc(100%-90px)] ":
               !sidebarIsOpen,
             "h-screen max-lg:h-[calc(100vh-84px)] overflow-clip":
-              router.pathname !== "/page-4",
+              router.pathname !== "/",
             "z-[-1]": isMobileSidebarOpen,
           }
         )}
