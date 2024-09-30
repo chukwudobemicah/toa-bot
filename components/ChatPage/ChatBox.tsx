@@ -36,9 +36,29 @@ export default function ChatBox() {
     setInputValue(e.target.value);
   };
 
+  const [, setSelectedFile] = useState<File | null>(null);
+  const [chosenImage, setChosenImage] = useState<string>("");
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    setSelectedFile(file);
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setChosenImage(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setChosenImage("");
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (inputValue.trim()) {
+    console.log("imageMessageUrl", chosenImage);
+
+    if (inputValue.trim() || chosenImage) {
       const newMessage: MessageType = {
         id: messages.length + 1,
         message: inputValue,
@@ -47,9 +67,13 @@ export default function ChatBox() {
           minute: "2-digit",
         }),
         position: "sender",
+        imageMessageUrl: chosenImage ?? false,
       };
       setMessages([...messages, newMessage]);
       setInputValue(""); // Clear the input after sending the message
+      setChosenImage("");
+      setSelectedFile(null);
+      console.log("imageMessageUrl", chosenImage);
     }
   };
 
@@ -85,22 +109,23 @@ export default function ChatBox() {
         Social Tensor
       </h1>
       <audio ref={audioRef} src="/audio/sent_message.wav" />
-
-      <div className="absolute max-xs:flex-col whitespace-nowrap text-[#9CA3AF] text-sm bottom-24 z-[99] left-1/2 -translate-x-1/2 flex gap-4 items-center">
-        <div className="flex hover:brightness-150 transition-all duration-300 ease-in-out cursor-pointer items-center gap-3 bg-secondary border border-white/10 py-1.5 px-3 rounded-lg">
-          <div>
-            <Icon iconType={"star"} className="w-5" />
+      {inputValue.length === 0 ||
+        (!chosenImage && (
+          <div className="absolute max-xs:flex-col whitespace-nowrap text-[#9CA3AF] text-sm bottom-24 z-[99] left-1/2 -translate-x-1/2 flex gap-4 items-center">
+            <div className="flex hover:brightness-150 transition-all duration-300 ease-in-out cursor-pointer items-center gap-3 bg-secondary border border-white/10 py-1.5 px-3 rounded-lg">
+              <div>
+                <Icon iconType={"star"} className="w-5" />
+              </div>
+              <p>Can you provide more details?</p>
+            </div>
+            <div className="flex hover:brightness-150 transition-all duration-300 ease-in-out cursor-pointer items-center gap-3 bg-secondary border border-white/10 py-1.5 px-3 rounded-lg">
+              <div>
+                <Icon iconType={"star"} className="w-5" />
+              </div>
+              <p>Can you clarify your request?</p>
+            </div>
           </div>
-          <p>Can you provide more details?</p>
-        </div>
-        <div className="flex hover:brightness-150 transition-all duration-300 ease-in-out cursor-pointer items-center gap-3 bg-secondary border border-white/10 py-1.5 px-3 rounded-lg">
-          <div>
-            <Icon iconType={"star"} className="w-5" />
-          </div>
-          <p>Can you clarify your request?</p>
-        </div>
-      </div>
-
+        ))}
       <div
         ref={chatBoxContainerRef}
         className="flex-grow h-[80vh] overflow-y-clip pb-12"
@@ -113,6 +138,26 @@ export default function ChatBox() {
         </div>
       </div>
       <div className="absolute bottom-4 left-0 w-full">
+        {chosenImage && (
+          <div className="relative flex w-full items-end justify-end">
+            <div className="relative w-[300px] -translate-x-4">
+              <button
+                className="absolute z-50 -top-4 -left-4"
+                onClick={() => {
+                  setChosenImage("");
+                }}
+              >
+                {/* close */}
+                <Icon iconType="close" className="w-8" />
+              </button>
+              <img
+                src={chosenImage}
+                alt="Selected File preview"
+                className="w-full rounded-xl"
+              />
+            </div>
+          </div>
+        )}
         <form
           onSubmit={handleSubmit}
           className="relative bg-background flex px-4 w-full gap-4 items-center"
@@ -124,7 +169,13 @@ export default function ChatBox() {
                 htmlFor="image"
               >
                 <Icon iconType="imageClip" className="w-4" />
-                <input name="image" id="image" className="hidden" type="file" />
+                <input
+                  onChange={handleFileChange}
+                  name="image"
+                  id="image"
+                  className="hidden"
+                  type="file"
+                />
               </label>
               <input
                 type="text"
