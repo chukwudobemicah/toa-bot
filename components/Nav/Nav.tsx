@@ -30,14 +30,14 @@ export default function Nav() {
   return (
     <nav
       className={cn(
-        "w-full z-[999] md:w-[calc(100%-200px)] max-md:flex max-md:flex-col max-md:gap-4 ease-in-out transition-all duration-300 pb-2 pt-2 md:ml-auto bg-background text-white sticky h-fit -top-[1px] left-0 max-md:right-0",
+        "w-full z-[999] lg:h-[0] md:w-[calc(100%-200px)] max-md:flex max-md:flex-col max-md:gap-4 ease-in-out transition-all duration-300 max-lg:pb-2 max-lg:pt-2 md:ml-auto bg-background text-white sticky h-fit -top-[1px] left-0 max-md:right-0",
         {
           " custom-shadow bg-background": isScrolled,
           " md:w-[calc(100%-90px)] ": !sidebarIsOpen,
         }
       )}
     >
-      <div
+      {/* <div
         onClick={() => {
           setSidebarIsOpen(!sidebarIsOpen);
           console.log(sidebarIsOpen, "click");
@@ -48,7 +48,7 @@ export default function Nav() {
           iconType={"sidebarArrow"}
           className="w-2  group-hover:text-black transition-all duration-300 ease-in-out text-black rotate-180"
         />
-      </div>
+      </div> */}
 
       <div className="flex py-2 items-center justify-between px-5 w-full">
         <div className="lg:hidden flex items-center gap-2">

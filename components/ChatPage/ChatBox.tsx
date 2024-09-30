@@ -95,7 +95,7 @@ export default function ChatBox() {
   return (
     <div
       className={cn(
-        "flex w-full z-50 max-md:left-0 right-0 left-0 h-dvh transition-transform duration-500  ease-in-out bg-background relative flex-col box-border max-h-full flex-grow max-lg:w-screen max-lg:translate-x-[200%] max-lg:absolute",
+        "flex w-full z-50 max-md:left-0 right-0 left-0 h-dvh transition-transform duration-500  ease-in-out bg-background relative flex-col box-border max-h-full flex-grow",
         {
           "max-lg:translate-x-0": chatboxIsOpen,
         }

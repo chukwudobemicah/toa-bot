@@ -60,7 +60,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         `relative w-full justify-center min-h-screen flex font-segeo-ui flex-col ${segoeUi.className} ${quicksand.className} ${segoeUISymbol.className}`
       )}
     >
-      {/* <Nav /> */}
+      <Nav />
       <Overlay
         isOpen={isMobileSidebarOpen}
         onClick={() => {
