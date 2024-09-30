@@ -30,7 +30,7 @@ export default function ChatActions() {
         }}
       /> */}
       {/* New Chat Button */}
-      <button className="flex items-center font-segoe-ui-symbol justify-between mt-8 gap-4 px-8 py-4 mb-8 bg-[#18181B] rounded-2xl text-white text-xs">
+      <button className="hover:brightness-125 active:scale-90 transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-black/30 flex items-center font-segoe-ui-symbol justify-between mt-8 gap-4 px-8 py-4 mb-8 bg-[#18181B] rounded-2xl text-white text-xs">
         <div>
           <Icon iconType={"add"} className="w-4 text-white" />
         </div>
