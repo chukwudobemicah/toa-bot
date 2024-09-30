@@ -78,14 +78,14 @@ export default function Home() {
                 }}
                 className="border-b group relative border-b-[#818AB1] pb-4"
               >
-                <div className="w-full relative overflow-hidden bg-background">
+                <div className="w-full rounded-xl relative overflow-hidden bg-background">
                   <div
                     className={cn(
-                      `absolute group-hover:scale-125 rotate-45 group-hover:rotate-0 group-hover:translate-x-0 transition-all duration-300 ease-linear size-[1500px] translate-x-full left-0 group-hover:-left-1/2 will-change-transform top-0 bg-text- z-[1] rounded-l-full ${backgroundClass}`
+                      `absolute group-hover:scale-125 rotate-45 group-hover:rotate-0 group-hover:translate-x-0 transition-all duration-300 ease-linear size-[1500px] translate-x-full left-0 group-hover:-left-[70%] will-change-transform top-0 bg-text- z-[1] rounded-l-full ${backgroundClass}`
                     )}
                   />
 
-                  <div className="aspect-[16/6] relative group cursor-pointer overflow-hidden  z-10 rounded-lg shadow-lg p-4 flex items-center gap-4 w-full">
+                  <div className="max-xs:h-[150px] xs:aspect-[16/6] relative group cursor-pointer overflow-hidden  z-10 rounded-lg shadow-lg p-4 flex items-center gap-4 w-full">
                     {/*  */}
 
                     {/*  */}
