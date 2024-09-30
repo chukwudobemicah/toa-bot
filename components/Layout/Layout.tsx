@@ -49,10 +49,16 @@ const quicksand = Quicksand({
 });
 
 export default function Layout({ children }: { children: ReactNode }) {
-  const { isMobileSidebarOpen, setIsMobileSidebarOpen, sidebarIsOpen } =
-    useSidebarStore();
+  const {
+    isMobileSidebarOpen,
+    setIsMobileSidebarOpen,
+    sidebarIsOpen,
+    isAddChatOpen,
+    setIsAddChatOpen,
+  } = useSidebarStore();
   useStopScroll(isMobileSidebarOpen);
   const router = useRouter();
+
   return (
     <div
       id="layout"
@@ -65,12 +71,13 @@ export default function Layout({ children }: { children: ReactNode }) {
         isOpen={isMobileSidebarOpen}
         onClick={() => {
           setIsMobileSidebarOpen(false);
+          // setIsAddChatOpen(false);
         }}
       />
       <Sidebar />
       <div
         className={cn(
-          "ml-auto relative max-md:w-full ease-in-out transition-all  overflow-x-clip duration-300 main-content flex-grow md:max-w-[calc(100%-200px)] pb-8 md:w-[calc(100%-200px)] md:flex-grow ",
+          "ml-auto relative max-md:w-full z-[-1] ease-in-out transition-all  overflow-x-clip duration-300 main-content flex-grow md:max-w-[calc(100%-200px)] pb-8 md:w-[calc(100%-200px)] md:flex-grow ",
           {
             " md:max-w-[calc(100%-90px)] md:w-[calc(100%-90px)] ":
               !sidebarIsOpen,
@@ -84,3 +91,5 @@ export default function Layout({ children }: { children: ReactNode }) {
     </div>
   );
 }
+
+// flex w-full z-50 max-md:left-0 right-0 left-0 h-dvh transition-transform duration-500 ease-in-out bg-background relative flex-col box-border max-h-full flex-grow

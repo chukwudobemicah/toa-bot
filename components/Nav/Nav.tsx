@@ -42,6 +42,7 @@ export default function Nav() {
       <div
         onClick={() => {
           setSidebarIsOpen(!sidebarIsOpen);
+
           console.log(sidebarIsOpen, "click");
         }}
         className="absolute max-md:hidden group transition-all duration-300 ease-in-out cursor-pointer -left-4 top-20 py-2 px-1.5 hover:brightness-150 bg-primary rounded-lg border-2 border-black"
@@ -54,7 +55,10 @@ export default function Nav() {
 
       <div className="flex items-center justify-between px-5 w-full h-full">
         <div
-          onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
+          onClick={() => {
+            setIsMobileSidebarOpen(!isMobileSidebarOpen);
+            setIsAddChatOpen(false);
+          }}
           className="lg:hidden"
         >
           <Hamburger size={24} toggled={isMobileSidebarOpen} />
@@ -71,6 +75,7 @@ export default function Nav() {
         <div
           onClick={() => {
             setIsAddChatOpen(!isAddChatOpen);
+            setIsMobileSidebarOpen(false);
             console.log("yes", isAddChatOpen);
           }}
           className="lg:hidden flex items-center gap-2"

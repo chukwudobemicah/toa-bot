@@ -24,7 +24,7 @@ const Overlay = ({ isOpen, className, onClick }: OverlayProps) => {
           }}
           onClick={onClick}
           className={cn(
-            "overlay fixed z-30 bg-black/40 overlay w-screen h-dvh top-0 left-0",
+            "overlay fixed z-20 bg-black/60 w-screen h-dvh top-0 left-0",
             className
           )}
         ></motion.div>
