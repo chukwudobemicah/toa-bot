@@ -6,15 +6,6 @@ import useChatBoxIsOpenStore from "@/utils/store/useChatBoxIsOpenStore";
 
 export type Position = "receiver" | "sender";
 
-export type MessageType = {
-  id: number;
-  message: string;
-  name?: string; // Optional since not all messages have a name
-  image?: string;
-  time: string;
-  position: Position;
-};
-
 export default function ChatBox() {
   const [inputValue, setInputValue] = useState<string>("");
   const [messages, setMessages] = useState<MessageType[]>([
@@ -22,7 +13,7 @@ export default function ChatBox() {
       id: 1,
       message: "Hey! How are you?",
       time: "10:00 AM",
-      image: "https://placehold.co/36x36",
+      imageMessageUrl: "https://placehold.co/36x36",
       name: "Cortex.t Ultra",
       position: "receiver",
     },
@@ -30,7 +21,7 @@ export default function ChatBox() {
       id: 2,
       message: "I'm doing well, thank you!",
       time: "10:02 AM",
-      image: "https://placehold.co/36x36",
+      imageMessageUrl: "https://placehold.co/36x36",
       name: "Micah",
       position: "sender",
     },
@@ -38,7 +29,7 @@ export default function ChatBox() {
       id: 3,
       message: "That's great to hear!",
       time: "10:05 AM",
-      image: "https://placehold.co/36x36",
+      imageMessageUrl: "https://placehold.co/36x36",
       name: "Cortex.t Ultra",
       position: "receiver",
     },
@@ -82,15 +73,7 @@ export default function ChatBox() {
     }
   }, [messages]); // Scroll to the bottom when messages update
 
-  const [showPicker, setShowPicker] = useState(false);
-
-  const onEmojiClick = (emojiObject: { emoji: string }) => {
-    if (!emojiObject) return;
-    setInputValue((prevInput) => prevInput + emojiObject.emoji);
-    setShowPicker(false);
-  };
-
-  const { setChatboxIsOpen, chatboxIsOpen } = useChatBoxIsOpenStore();
+  const { chatboxIsOpen } = useChatBoxIsOpenStore();
 
   return (
     <div
@@ -126,9 +109,6 @@ export default function ChatBox() {
         className="flex-grow h-[80vh] overflow-y-clip pb-12"
       >
         <div
-          onClick={() => {
-            setShowPicker(false);
-          }}
           ref={chatBoxBottomRef}
           className="w-full overflow-y-auto h-full scroll-container relative flex flex-col pb-8 px-4"
         >

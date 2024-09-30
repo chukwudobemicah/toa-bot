@@ -7,16 +7,6 @@ import { motion } from "framer-motion";
 
 export type Position = "receiver" | "sender";
 
-export type MessageType = {
-  id: number;
-  message: string;
-  name?: string; // Optional since not all messages have a name
-  image?: string;
-  time: string;
-  position: Position;
-  imageMessageUrl?: string | boolean;
-};
-
 export default function Page2ChatBox() {
   const [inputValue, setInputValue] = useState<string>("");
   const [messages, setMessages] = useState<MessageType[]>([]);
@@ -46,13 +36,7 @@ export default function Page2ChatBox() {
   }, [messages]); // Scroll to the bottom when messages update
 
   const { setChatboxIsOpen, chatboxIsOpen } = useChatBoxIsOpenStore();
-  const questions = [
-    "Machine learning vs. deep learning: what's the difference?",
-    "What's the deal with proof-of-work vs. proof-of-stake?",
-    "How does natural selection work?",
-    "Stack vs. queue: what's the difference?",
-    "Can you explain the Turing test?",
-  ];
+
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [chosenImage, setChosenImage] = useState<string>("");
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,7 +70,7 @@ export default function Page2ChatBox() {
       setMessages([...messages, newMessage]);
       setInputValue(""); // Clear the input after sending the message
       setChosenImage("");
-      setSelectedFile("");
+      setSelectedFile(null);
     }
   };
   return (

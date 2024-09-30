@@ -6,15 +6,6 @@ import Message from "../Message/Message";
 
 export type Position = "receiver" | "sender";
 
-export type MessageType = {
-  id: number;
-  message: string;
-  name?: string; // Optional since not all messages have a name
-  image?: string;
-  time: string;
-  position: Position;
-};
-
 export default function Page3ChatBox() {
   const [inputValue, setInputValue] = useState<string>("");
   const [messages, setMessages] = useState<MessageType[]>([]);

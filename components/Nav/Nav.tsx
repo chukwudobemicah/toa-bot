@@ -68,6 +68,7 @@ export default function Nav() {
           <Image
             src={"/images/logo.webp"}
             width={64}
+            alt="logo"
             height={64}
             className="size-[36px]"
           />
