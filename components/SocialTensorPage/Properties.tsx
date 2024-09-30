@@ -9,7 +9,7 @@ export default function Properties() {
 
   return (
     <div className="bg-secondary min-w-[200px] xl:w-[300px] text-white px-6 pt-4 rounded-lg w-64">
-      <h2 className="font-segeo-ui text-[#EFF4FC] mb-4">Properties</h2>
+      <h2 className="font-segeo-ui text-sm text-[#EFF4FC] mb-4">Properties</h2>
 
       <div className="mb-4 text-sm">
         <Dropdown.Root>
@@ -62,10 +62,10 @@ export default function Properties() {
           step={1}
           onValueChange={(value) => setResponsesValue(value[0])}
         >
-          <Slider.Track className="bg-gray-700 relative flex-grow h-1 rounded SliderTrack">
-            <Slider.Range className="absolute bg-blue-500 h-full rounded SliderRange" />
+          <Slider.Track className="bg-[#1E293B] relative flex-grow h-2 rounded SliderTrack">
+            <Slider.Range className="absolute bg-white h-full rounded SliderRange" />
           </Slider.Track>
-          <Slider.Thumb className="block w-4 h-4 bg-blue-500 rounded-full SliderThumb !cursor-grab" />
+          <Slider.Thumb className="block w-4 h-4 bg-white rounded-full SliderThumb !cursor-grab" />
         </Slider.Root>
         <span className="block text-sm text-gray-400 mt-2">
           Value: {responsesValue}
@@ -82,10 +82,10 @@ export default function Properties() {
           step={1}
           onValueChange={(value) => setRecencyValue(value[0])}
         >
-          <Slider.Track className="bg-gray-700 relative flex-grow h-1 rounded SliderTrack">
-            <Slider.Range className="absolute bg-blue-500 h-full rounded SliderRange" />
+          <Slider.Track className="bg-[#1E293B] relative flex-grow h-2 rounded SliderTrack">
+            <Slider.Range className="absolute bg-white h-full rounded SliderRange" />
           </Slider.Track>
-          <Slider.Thumb className="block w-4 h-4 bg-blue-500 rounded-full SliderThumb !cursor-grab" />
+          <Slider.Thumb className="block w-4 h-4 bg-white rounded-full SliderThumb !cursor-grab" />
         </Slider.Root>
         <span className="block text-sm text-gray-400 mt-2">
           Value: {recencyValue}
