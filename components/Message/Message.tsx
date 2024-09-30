@@ -44,15 +44,20 @@ const Message = ({ messages }: MessageProps) => {
                   })}
                 >
                   {imageMessageUrl && (
-                    <div className="lg:max-w-[300px] border-2 rounded-xl border-primary overflow-hidden">
-                      <img
-                        src={imageMessageUrl}
-                        alt="Selected File Preview"
-                        className="rounded-xl object-cover"
-                      />
+                    <div className="flex flex-col">
+                      <div className="lg:max-w-[300px] border-2 rounded-xl border-primary overflow-hidden">
+                        <img
+                          src={imageMessageUrl}
+                          alt="Selected File Preview"
+                          className="rounded-xl object-cover"
+                        />
+                        {message && (
+                          <p className="bg-primary text-white">{message}</p>
+                        )}
+                      </div>
                     </div>
                   )}
-                  {message && message !== "" && (
+                  {message && message !== "" && !imageMessageUrl && (
                     <div className="max-w-[290px] relative flex flex-col gap-1.5">
                       <p
                         className={cn(
