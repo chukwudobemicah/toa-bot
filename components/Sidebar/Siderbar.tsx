@@ -69,7 +69,7 @@ export default function Sidebar() {
     if (screenWidth > 760) {
       setSidebarIsOpen(false);
     }
-  }, [screenWidth]);
+  }, []);
 
   return (
     <aside
