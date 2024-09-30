@@ -10,7 +10,7 @@ export default function Properties() {
   const [sort, setSort] = useState<string>("Sort");
 
   return (
-    <div className="bg-secondary min-w-[200px] xl:w-[300px] text-white px-6 pt-4 rounded-lg w-64">
+    <div className="max-lg:hidden bg-secondary min-w-[200px] xl:w-[300px] text-white px-6 pt-4 rounded-lg w-64">
       <h2 className="font-segeo-ui text-sm text-[#EFF4FC] mb-4">Properties</h2>
 
       <div className="mb-4 text-sm">
