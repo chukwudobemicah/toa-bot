@@ -18,6 +18,7 @@
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "framer-motion": "^11.9.0",
+    "gsap": "^3.12.5",
     "hamburger-react": "^2.5.1",
     "next": "14.2.13",
     "react": "^18",

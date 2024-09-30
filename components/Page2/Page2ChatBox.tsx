@@ -56,6 +56,8 @@ export default function Page2ChatBox() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("imageMessageUrl", chosenImage);
+
     if (inputValue.trim() || chosenImage) {
       const newMessage: MessageType = {
         id: messages.length + 1,
@@ -71,6 +73,7 @@ export default function Page2ChatBox() {
       setInputValue(""); // Clear the input after sending the message
       setChosenImage("");
       setSelectedFile(null);
+      console.log("imageMessageUrl", chosenImage);
     }
   };
   return (

@@ -8,7 +8,9 @@ type MessageProps = {
 const Message = ({ messages }: MessageProps) => {
   return (
     <>
-      {messages.map(({ id, message, position, name }) => {
+      {messages.map(({ id, message, position, name, imageMessageUrl }) => {
+        console.log("imageMessageUrl", imageMessageUrl);
+
         return (
           <div
             key={id}
@@ -41,7 +43,7 @@ const Message = ({ messages }: MessageProps) => {
                       position === "sender" && message && message !== "",
                   })}
                 >
-                  {/* {imageMessageUrl && (
+                  {imageMessageUrl && (
                     <div className="lg:max-w-[300px] overflow-hidden">
                       <img
                         src={imageMessageUrl}
@@ -49,7 +51,7 @@ const Message = ({ messages }: MessageProps) => {
                         className="rounded-xl object-cover"
                       />
                     </div>
-                  )} */}
+                  )}
                   {message && message !== "" && (
                     <div className="max-w-[290px] relative flex flex-col gap-1.5">
                       <p
