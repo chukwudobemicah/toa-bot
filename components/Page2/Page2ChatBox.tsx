@@ -35,9 +35,9 @@ export default function Page2ChatBox() {
     }
   }, [messages]); // Scroll to the bottom when messages update
 
-  const { setChatboxIsOpen, chatboxIsOpen } = useChatBoxIsOpenStore();
+  const { chatboxIsOpen } = useChatBoxIsOpenStore();
 
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [, setSelectedFile] = useState<File | null>(null);
   const [chosenImage, setChosenImage] = useState<string>("");
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;

@@ -3,7 +3,6 @@ import Icon from "../icon-selector/icon-selector";
 import { cn } from "@/utils/functions";
 import useSidebarStore from "@/utils/store/useSidebarStore";
 import Hamburger from "hamburger-react";
-import Button from "../Button/button";
 import Image from "next/image";
 
 export default function Nav() {

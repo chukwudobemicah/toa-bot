@@ -3,10 +3,9 @@
 import useSidebarStore from "@/utils/store/useSidebarStore";
 import Icon from "../icon-selector/icon-selector";
 import { cn } from "@/utils/functions";
-import Overlay from "../Overlay/Overlay";
 
 export default function ChatActions() {
-  const { isAddChatOpen, setIsAddChatOpen } = useSidebarStore();
+  const { isAddChatOpen } = useSidebarStore();
   return (
     <div
       onClick={() => {

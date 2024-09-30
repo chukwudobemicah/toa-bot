@@ -49,13 +49,8 @@ const quicksand = Quicksand({
 });
 
 export default function Layout({ children }: { children: ReactNode }) {
-  const {
-    isMobileSidebarOpen,
-    setIsMobileSidebarOpen,
-    sidebarIsOpen,
-    isAddChatOpen,
-    setIsAddChatOpen,
-  } = useSidebarStore();
+  const { isMobileSidebarOpen, setIsMobileSidebarOpen, sidebarIsOpen } =
+    useSidebarStore();
   useStopScroll(isMobileSidebarOpen);
   const router = useRouter();
 

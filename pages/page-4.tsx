@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <main className="mt-6">
       <div className="grid bg-[#171A20] px-4 py-6  grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-        {cardData.map(({ imageSrc, title, buttonText }, index) => {
+        {cardData.map(({ title, buttonText }, index) => {
           return (
             <div key={index} className="border-b border-b-[#818AB1] pb-4">
               <div className="relative cursor-pointer group overflow-hidden bg-background h-[150px] rounded-lg shadow-lg p-4 flex items-center gap-4 w-full">
@@ -52,6 +52,7 @@ export default function Home() {
                 </div>
                 <Image
                   src={"/images/tensor-ball.webp"}
+                  alt="tensor ball"
                   width={200}
                   height={200}
                   priority

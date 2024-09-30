@@ -48,16 +48,9 @@ export default function Page3ChatBox() {
     }
   }, [messages]); // Scroll to the bottom when messages update
 
-  const [showPicker, setShowPicker] = useState(false);
-
-  const onEmojiClick = (emojiObject: { emoji: string }) => {
-    if (!emojiObject) return;
-    setInputValue((prevInput) => prevInput + emojiObject.emoji);
-    setShowPicker(false);
-  };
   const [showNote, setShowNote] = useState(true);
 
-  const { setChatboxIsOpen, chatboxIsOpen } = useChatBoxIsOpenStore();
+  const { chatboxIsOpen } = useChatBoxIsOpenStore();
   const questions = [
     "Machine learning vs. deep learning: what's the difference?",
     "What's the deal with proof-of-work vs. proof-of-stake?",
@@ -132,9 +125,6 @@ export default function Page3ChatBox() {
           </div>
         )}
         <div
-          onClick={() => {
-            setShowPicker(false);
-          }}
           ref={chatBoxBottomRef}
           className="w-full overflow-y-auto h-full scroll-container relative flex flex-col pb-8 px-4"
         >
