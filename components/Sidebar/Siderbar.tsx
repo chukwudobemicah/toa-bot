@@ -5,6 +5,7 @@ import Link from "next/link";
 import useSidebarStore from "@/utils/store/useSidebarStore";
 import { useRouter } from "next/router";
 import useScreenSize from "@/utils/hooks/useScreenSize";
+import { motion } from "framer-motion";
 
 export const SIDEBAR_LINK = [
   {
@@ -29,12 +30,12 @@ export const SIDEBAR_LINK = [
   },
   {
     text: "Tier List",
-    linkto: "/social-tensor",
+    linkto: "/page-5",
     icon: "tabFour", // Tier List icon string
   },
   {
     text: "Tier List",
-    linkto: "/tier-list",
+    linkto: "/page-5",
     icon: "tabFive", // Tier List icon string
   },
   // {
@@ -90,9 +91,6 @@ export default function Sidebar() {
           >
             <Icon iconType={"logo"} className="w-16" />
           </div>
-          {sidebarIsOpen && (
-            <p className="text-base font-medium">KOL Manager</p>
-          )}
         </div>
         <ul
           className={cn("flex flex-col gap-4", {
@@ -113,7 +111,7 @@ export default function Sidebar() {
                   className={cn(
                     `relative group cursor-pointer flex transition-all duration-300 ease-in-out  gap-3 py-2 w-full  items-center rounded-full text-text`,
                     {
-                      "bg-primary text-white":
+                      "bg- text-white":
                         link?.linkto?.toLowerCase() ===
                         router.pathname.toLowerCase(),
                       "hover:bg[#232778] text-white":
@@ -139,6 +137,13 @@ export default function Sidebar() {
                       {link.text}
                     </p>
                   )}
+                  {link?.linkto?.toLowerCase() ===
+                    router.pathname.toLowerCase() && (
+                    <motion.div
+                      layoutId="sidebar-tab-animation"
+                      className="w-full z-[-1] rounded-full h-full bg-primary absolute left-0 top-0"
+                    />
+                  )}
                 </div>
               </Link>
             );
@@ -147,7 +152,7 @@ export default function Sidebar() {
       </div>
       {/*  */}
       <div
-        className={cn("py-2 w-full font-lato pl-5 flex flex-col gap-6 mt-8", {
+        className={cn("py-2 w-full font-lato flex flex-col gap-6 mt-8", {
           "aspect-square size-12 justify-center px-0 py-4 mx-auto":
             !sidebarIsOpen,
         })}

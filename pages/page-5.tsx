@@ -1,4 +1,3 @@
-import ChatBox from "@/components/ChatPage/ChatBox";
 import PostsLayout from "@/components/Layout/PostsLayout";
 import Layout from "@/components/Layout/Layout";
 import SocialPosts from "@/components/SocialTensorPage/SocialPosts";
