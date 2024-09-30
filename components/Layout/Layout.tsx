@@ -72,7 +72,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <Sidebar />
       <div
         className={cn(
-          "ml-auto relative max-md:w-full z-[-1] ease-in-out transition-all  overflow-x-clip duration-300 main-content flex-grow md:max-w-[calc(100%-200px)] pb-8 md:w-[calc(100%-200px)] md:flex-grow ",
+          "ml-auto relative max-md:w-full ease-in-out transition-all  overflow-x-clip duration-300 main-content flex-grow md:max-w-[calc(100%-200px)] pb-8 md:w-[calc(100%-200px)] md:flex-grow ",
           {
             " md:max-w-[calc(100%-90px)] md:w-[calc(100%-90px)] ":
               !sidebarIsOpen,
